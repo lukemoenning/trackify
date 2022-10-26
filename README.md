@@ -1,1 +1,7 @@
-=== Trackify
+===
+Trackify
+
+
+===
+Run
+npm start
