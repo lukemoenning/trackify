@@ -1,7 +1,5 @@
-===
-Trackify
+#Trackify
 
 
-===
-Run
+###Run
 npm start
