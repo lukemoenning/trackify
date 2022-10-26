@@ -16,4 +16,5 @@
     font-size: x-large;
     font-weight: 800;
     background-color: var(--light-green);
+    text-decoration: none;
 }
