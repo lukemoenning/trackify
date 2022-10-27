@@ -5,6 +5,9 @@ import { getAccessTokenFromURL } from './spotify';
 
 function App() {
 
+  /**
+   * Retrieves access token from the URL on a page reload. 
+   */
   useEffect( () => {
     const token = getAccessTokenFromURL();
     console.log("token success", token);
