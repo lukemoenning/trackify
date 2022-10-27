@@ -1,12 +1,12 @@
 # Trackify
 
 ## TODO
-° Finish Spotify clone skeleton
-° Incorporate Jest testing
-° Set up hosting with AWS Elastic Beanstalk / Heroku
-° Look into how Docker handles requirements and dependencies - How to update them as the project progresses
-° Update Dockerfile to run JSDoc 
-° Add Spotify statistics to Trackify
+° Finish Spotify clone skeleton <br />
+° Incorporate Jest testing <br />
+° Set up hosting with AWS Elastic Beanstalk / Heroku <br />
+° Look into how Docker handles requirements and dependencies - How to update them as the project progresses <br />
+° Update Dockerfile to run JSDoc <br />
+° Add Spotify statistics to Trackify <br />
 
 ## Run with docker
 $ docker pull lukemoenning/trackify
