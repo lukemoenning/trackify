@@ -9,8 +9,10 @@
 ° Add Spotify statistics to Trackify <br />
 
 ## Run with docker
-$ docker pull lukemoenning/trackify
-$ docker run -p 3000:3000 lukemoenning/trackify
+$ docker pull lukemoenning/trackify <br />
+$ docker run -d -p 3000:3000 --name trackify lukemoenning/trackify <br />
+$ docker build -t lukemoenning/trackify . <br />
+$ docker exec -it trackify bash <br />
 
 ## Run with npm
 $ npm start
