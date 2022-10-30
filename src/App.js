@@ -1,21 +1,42 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Login from './Login';
+import Account from './Account';
 import { getAccessTokenFromURL } from './spotify';
+import SpotifyWebApi from 'spotify-web-api-js';
+
+/**
+ * Spotify Web API object
+ */
+const spotify = new SpotifyWebApi();
 
 function App() {
 
   /**
-   * Retrieves access token from the URL on a page reload. 
+   * Account token
    */
+  const [accountToken, setToken] = useState(null);
+
   useEffect( () => {
-    const token = getAccessTokenFromURL();
-    console.log("token success", token);
+    // Retrieve access token from URL
+    const hash = getAccessTokenFromURL();
+    const token = hash.access_token;
+
+    // Remove the access token from the URL for security reasons
+    window.location.hash = ""; 
+
+    // If the retrieved token exists, set accountToken and spotify object
+    if (token) {
+      setToken(token);
+      spotify.setAccessToken(token);
+
+      spotify.getMe().then(user => {console.log(user)});
+    }
   }, []);
 
   return (
     <div className="app"> 
-      <Login />
+      {accountToken ? (<Account />) : (<Login />)}
     </div>
   );
 }
