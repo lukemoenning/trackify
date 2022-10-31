@@ -1,0 +1,7 @@
+.menu {
+  display: flex; 
+  height: 100vh;
+  outline: 1px solid red;
+  width: 20%;
+  min-width: 230px;
+}
