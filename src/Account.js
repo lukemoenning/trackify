@@ -5,16 +5,20 @@ import { useDataLayerValue } from './DataLayer';
 
 function Account() {
 
-    /**
-    * DataLayer
-    */
-    const [{}, dispatch] = useDataLayerValue();
+  /**
+  * DataLayer
+  */
+  const [{}, dispatch] = useDataLayerValue();
 
-    return (
-        <div>
-           
-        </div>
+  return (
+    <div className='account'>
+      <div className='wrap'>
+        {/* Menu */}
+
+      </div>
+
+    </div>
     )
-    };
+};
 
 export default Account;
