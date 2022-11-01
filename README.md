@@ -23,7 +23,7 @@ $ docker-compose down <br />
 $ npm start <br />
 
 ## Update package.json
-$ npx npm-chek-updates -u <br />
+$ npx npm-check-updates -u <br />
 $ npm install <br />
 
 ## JSDoc

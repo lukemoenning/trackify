@@ -1,7 +1,8 @@
 .footer {
-  outline: 1px solid purple;
   position: fixed;
   bottom: 0;
   height: 65px;
   width: 100%;
+  background-color: var(--dark-grey);
+  color: var(--white);
 }

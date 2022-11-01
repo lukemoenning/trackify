@@ -1,6 +1,6 @@
 import React from 'react';
 import './Login.css';
-import logo from './assets/images/spotify_logo.svg';
+import logo from './assets/images/spotify_logo_green.svg';
 import { loginURL } from './spotify';
 
 function Login() {

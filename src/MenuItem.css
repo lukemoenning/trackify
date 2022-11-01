@@ -1,0 +1,10 @@
+.menuItem {
+  color: var(--light-grey);
+  cursor: pointer;
+  height: 40px;
+  transition: 200ms color ease-in;
+}
+
+.menuItem:hover {
+  color: var(--white);
+}
