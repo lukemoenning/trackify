@@ -3,9 +3,12 @@
  */
 export const initialState = {
 
-    /**CHANGE BACK TO NULL AFTER PRODUCTION */
-    token: 'BQAeZdi6s89RI8Ug5o2ctfXLO24moYZNd9_M0NSMbCOUhT7rn7bNikwBGAxd5WiQFXSWNt7hQaHb3t1EZiWadgXXsiFGMG-RdtM9U4S7pXCRD1Q9HCmMJ5azb4gUgNN2GaInpJttKaSwqJZaGzSILRaaEToeaVJCJb4eH-wThJDQxpX2jBltf1x6iM',
+    token: null,
+
+    /**CHANGE BACK TO NULL AFTER DEVELOPMENT */
+    // token: 'BQAeZdi6s89RI8Ug5o2ctfXLO24moYZNd9_M0NSMbCOUhT7rn7bNikwBGAxd5WiQFXSWNt7hQaHb3t1EZiWadgXXsiFGMG-RdtM9U4S7pXCRD1Q9HCmMJ5azb4gUgNN2GaInpJttKaSwqJZaGzSILRaaEToeaVJCJb4eH-wThJDQxpX2jBltf1x6iM',
     user: null,
+    playlists: null,
 };
 
 const reducer = (state, action) => {
@@ -26,6 +29,13 @@ const reducer = (state, action) => {
       return {
         ...state, 
         user: action.user,
+      };
+
+    // Return current state with the playlists updated
+    case "SET_PLAYLISTS":
+      return {
+        ...state, 
+        playlists: action.playlists,
       };
 
     

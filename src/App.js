@@ -44,6 +44,15 @@ function App() {
           user: user,
         });
       });
+
+      // Push playlists into DataLayer
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: "SET_PLAYLISTS",
+          playlists: playlists,
+        })
+      });
+
     }
   }, []);
 
