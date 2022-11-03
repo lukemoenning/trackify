@@ -4,8 +4,10 @@ import {
   PlayCircle, PauseCircle, Shuffle, Repeat, SkipNext, SkipPrevious,
   QueueMusic, VolumeDown, VolumeUp, FavoriteBorder 
 } from '@mui/icons-material';
-// import { Slider } from '@mui/material/core';
+import { Slider } from '@mui/material';
 import { useDataLayerValue } from './DataLayer';
+import theme from './assets/constants/Colors';
+import { ThemeProvider } from '@emotion/react';
 
 function Footer() {
 
@@ -17,10 +19,13 @@ function Footer() {
   return (
     <div className='footer'>
 
+      {/* SONG INFO */}
       <div className='songInfo'>
         <FavoriteBorder className='footerIconHighlightable' />
       </div>
 
+
+      {/* PLAY CONTROLS */}
       <div className='playControls'>
         <Shuffle className='footerIconHighlightable' />
         <SkipPrevious className='footerIcon' />
@@ -29,10 +34,13 @@ function Footer() {
         <Repeat className='footerIconHighlightable' />
       </div>
 
+
+      {/* VOLUME CONTROLS */}
       <div className='volumeControls'>
         <QueueMusic className='footerIcon' />
-        <VolumeDown className='footerIcon' fontSize='small'/>
-        <VolumeUp className='footerIcon' fontSize='small'/>
+        <VolumeDown fontSize='small'/>
+        <ThemeProvider theme={theme}><Slider className='footerSlider' size='small' defaultValue={25}/></ThemeProvider>
+        <VolumeUp fontSize='small'/>
       </div>
      
     </div>

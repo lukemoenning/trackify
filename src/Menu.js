@@ -2,7 +2,7 @@ import React from 'react';
 import './Menu.css';
 import logo from './assets/images/spotify_logo_white.png';
 import MenuItem from './MenuItem';
-import { Home, Search, LibraryMusic } from '@mui/icons-material';
+import { Home, Search, LibraryMusic, BarChart } from '@mui/icons-material';
 import { useDataLayerValue } from './DataLayer';
 
 
@@ -23,6 +23,7 @@ function Menu() {
       <MenuItem text='Home' Icon={Home}/>
       <MenuItem text='Search' Icon={Search}/>
       <MenuItem text='Your Library' Icon={LibraryMusic}/>
+      <MenuItem text='Your Stats' Icon={BarChart}/>
 
       {/* DIVIDER */}
       <br />
