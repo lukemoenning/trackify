@@ -4,7 +4,7 @@ import './styles/Song.css';
 function Song() {
   return (
     <div className='song'>
-      <p>this is a song</p>
+      <p>song</p>
     </div>
   );
 }

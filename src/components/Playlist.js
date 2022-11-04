@@ -1,36 +1,78 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './styles/Playlist.css';
 import Song from './Song';
 import { useDataLayerValue } from '../DataLayer';
+import { PlayCircle } from '@mui/icons-material';
 
 function Playlist(id) {
 
   /**
   * DataLayer
   */
-   const [{displayedPlaylist}, dispatch] = useDataLayerValue();
+  const [{displayedPlaylist, user}, dispatch] = useDataLayerValue();
+
 
   return (
     <div className='playlist'>
 
       <div className='playlistBanner'>
-        <img src={displayedPlaylist?.images[0]?.url} height={200} width={200}></img>
+        <img src={displayedPlaylist?.images[0]?.url} height={250} width={250}></img>
 
         <div className='playlistBannerText'>
           <strong>PLAYLIST</strong>
-          <h2>{displayedPlaylist.name}</h2>
+          <h1>{displayedPlaylist.name}</h1>
+          <h3>{user?.display_name} ∘ {displayedPlaylist?.tracks.total} Songs</h3>
         </div>
       </div>
 
+      <PlayCircle className='playCircle' style={{ fontSize: 75}}/>
  
-      <Song />
-      <Song />
-      <Song />
-      <Song />
-      <Song />
-      <Song />
-      <Song />
-      <Song />
+      <div className='songs'>
+        {/* {displayedPlaylist.tracks.map((song) => (
+          <Song />
+        ))} */}
+
+
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+        <Song />
+      </div>
+
     </div>
   );
 }

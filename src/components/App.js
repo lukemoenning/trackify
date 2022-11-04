@@ -26,6 +26,7 @@ function App() {
     // Remove the access token from the URL for security reasons
     window.location.hash = ''; 
 
+
     // If the retrieved token exists, set accountToken and spotify object
     if (_token) {
 

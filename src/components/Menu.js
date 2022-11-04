@@ -30,6 +30,8 @@ function Menu() {
       type: "SET_CURRENT_BODY_DISPLAY",
       currentBodyDisplay: newCurrentBodyDisplay,
     });
+
+    console.log(playlist);
   }
 
   return (
