@@ -1,0 +1,11 @@
+@import url('../../assets/constants/Colors.css');
+
+.playlist {
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+}
+
+.playlistBanner {
+  display: flex;
+}

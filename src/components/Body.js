@@ -5,6 +5,7 @@ import { useDataLayerValue } from '../DataLayer';
 import Home from './Home';
 import Library from './Library';
 import Stats from './Stats';
+import Playlist from './Playlist';
 
 function Body() {
 
@@ -19,14 +20,19 @@ function Body() {
       
       {(() => {
         switch (currentBodyDisplay) {
+
           case 'home':
             return <Home/>;
-          {/* case 'search':
-            return <Search />; */}
+
           case 'library':
             return <Library />;
+
           case 'stats':
             return <Stats />;
+
+          case 'playlist':
+            return <Playlist id='' />
+
           default:
             return null;
         }

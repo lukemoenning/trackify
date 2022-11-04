@@ -11,6 +11,7 @@ export const initialState = {
     currentBodyDisplay: 'home',
     user: null,
     playlists: null,
+    displayedPlaylist: null,
 };
 
 const reducer = (state, action) => {
@@ -44,6 +45,13 @@ const reducer = (state, action) => {
       return {
         ...state, 
         playlists: action.playlists,
+      };
+
+    // Return current state with the displayedPlaylist updated
+    case "SET_DISPLAYED_PLAYLIST":
+      return {
+        ...state, 
+        displayedPlaylist: action.displayedPlaylist,
       };
 
     // Return unmodified state

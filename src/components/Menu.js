@@ -13,7 +13,19 @@ function Menu() {
   */
   const [{ playlists }, dispatch] = useDataLayerValue();
 
-  const handleClick = (newCurrentBodyDisplay) => {
+  const handleIconClick = (newCurrentBodyDisplay) => {
+    dispatch({
+      type: "SET_CURRENT_BODY_DISPLAY",
+      currentBodyDisplay: newCurrentBodyDisplay,
+    });
+  }
+
+  const displayPlaylist = (playlist, newCurrentBodyDisplay) => {
+    dispatch({
+      type: "SET_DISPLAYED_PLAYLIST",
+      displayedPlaylist: playlist,
+    });
+
     dispatch({
       type: "SET_CURRENT_BODY_DISPLAY",
       currentBodyDisplay: newCurrentBodyDisplay,
@@ -27,13 +39,13 @@ function Menu() {
       <img src={logo} alt='Spotfiy Logo'></img>
 
       {/* MAIN ICONS */}
-      <div onClick={() => handleClick('home')}>
+      <div onClick={() => handleIconClick('home')}>
         <MenuItem text='Home' Icon={Home}/>
       </div>
-      <div onClick={() => handleClick('library')}>
+      <div onClick={() => handleIconClick('library')}>
         <MenuItem text='Your Library' Icon={LibraryMusic}/>
       </div>
-      <div onClick={() => handleClick('stats')}>
+      <div onClick={() => handleIconClick('stats')}>
         <MenuItem text='Your Stats' Icon={BarChart}/>
       </div>
 
@@ -44,7 +56,9 @@ function Menu() {
       {/* PLAYLISTS */}
       <div className='playlists'>
         {playlists?.items?.map(playlist => (
-          <MenuItem text={playlist.name} />
+          <div onClick={() => displayPlaylist(playlist, 'playlist')}>
+            <MenuItem text={playlist.name} />
+          </div>
         ))}
       </div>
 
