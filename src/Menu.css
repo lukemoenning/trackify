@@ -1,11 +1,12 @@
 @import url('./assets/constants/Colors.css');
+@import url('./assets/constants/Constants.css');
 
 .menu {
   position: fixed;
   display: flex; 
   flex-direction: column;
   height: 100vh;
-  width: 230px;
+  width: var(--menu-width);
   background-color: var(--dark-black);
   color: var(--white);
   padding: 10px;
@@ -35,16 +36,16 @@
 
 /* SCROLLBAR */
 .playlists::-webkit-scrollbar {
-  width: 5px;
+  width: 10px;
 }
 
 .playlists::-webkit-scrollbar-track {
-  border-radius: 15px;
+  border-radius: 25px;
 }
 
 .playlists::-webkit-scrollbar-thumb {
   background-color: var(--light-grey); 
-  border-radius: 15px;
+  border-radius: 25px;
 }
 
 .playlists::-webkit-scrollbar-thumb:hover {
