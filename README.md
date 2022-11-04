@@ -2,6 +2,7 @@
 
 ## TODO
 ° Finish Spotify clone skeleton <br />
+° React Router <br />
 ° Incorporate Jest testing <br />
 ° Set up hosting with AWS Elastic Beanstalk / Heroku <br />
 ° Look into how Docker handles requirements and dependencies - How to update them as the project progresses <br />

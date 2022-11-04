@@ -8,13 +8,14 @@
   align-items: center;
   height: 60px;
   width: calc(100% - var(--menu-width));
+  overflow-x: hidden;
 }
 
 .userProfile {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-right: 20px;
+  margin-right: 40px;
   padding: 10px;
   height: 30%;
   border-radius: 50px;

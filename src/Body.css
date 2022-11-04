@@ -3,12 +3,14 @@
 .body {
   display: flex; 
   flex-direction: column;
-  margin-left: var(--menu-width);
   position: relative;
   height: 100vh;
   width: 100%;
   overflow-y: scroll;
   background: linear-gradient(var(--dark-grey), var(--black));
+
+  /* NOT ALIGNING CORRECTLY SO SHIFT BY 20 PIXELS */
+  margin-left: calc(var(--menu-width) + 20px);
 }
 
 

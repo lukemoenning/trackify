@@ -24,7 +24,7 @@ function App() {
     const _token = hash.access_token;
 
     // Remove the access token from the URL for security reasons
-    window.location.hash = ""; 
+    window.location.hash = ''; 
 
     // If the retrieved token exists, set accountToken and spotify object
     if (_token) {
@@ -53,11 +53,10 @@ function App() {
         })
       });
 
+      
+
     }
   }, []);
-
-  console.log("USER " + user);
-  console.log("TOKEN " + token);
 
   return (
     <div className="app"> 
@@ -67,3 +66,4 @@ function App() {
 }
 
 export default App;
+spotify.getRecommendations
