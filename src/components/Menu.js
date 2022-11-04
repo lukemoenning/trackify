@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import './Menu.css';
-import logo from './assets/images/spotify_logo_white.png';
+import './styles/Menu.css';
+import logo from '../assets/images/spotify_logo_white.png';
 import MenuItem from './MenuItem';
 import { Home, LibraryMusic, BarChart } from '@mui/icons-material';
-import { useDataLayerValue } from './DataLayer';
+import { useDataLayerValue } from '../DataLayer';
 
 
 function Menu() {

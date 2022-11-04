@@ -1,5 +1,5 @@
 import React from 'react';
-import './Library.css';
+import './styles/Library.css';
 
 function Library() {
   return (

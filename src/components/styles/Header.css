@@ -1,5 +1,5 @@
-@import url('./assets/constants/Constants.css');
-@import url('./assets/constants/Colors.css');
+@import url('../../assets/constants/Constants.css');
+@import url('../../assets/constants/Colors.css');
 
 .header {
   position: fixed;

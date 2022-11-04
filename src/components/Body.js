@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import './Body.css';
+import './styles/Body.css';
 import Header from './Header';
-import { useDataLayerValue } from './DataLayer';
+import { useDataLayerValue } from '../DataLayer';
 import Home from './Home';
 import Library from './Library';
 import Stats from './Stats';

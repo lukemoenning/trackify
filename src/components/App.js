@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import './App.css';
+import './styles/App.css';
 import Login from './Login';
 import Account from './Account';
-import { getAccessTokenFromURL } from './spotify';
+import { getAccessTokenFromURL } from '../spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
-import { useDataLayerValue } from './DataLayer';
+import { useDataLayerValue } from '../DataLayer';
 
 /**
  * Spotify Web API object

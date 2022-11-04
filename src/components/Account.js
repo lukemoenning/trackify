@@ -1,6 +1,6 @@
 import React from 'react';
-import './Account.css';
-import { useDataLayerValue } from './DataLayer';
+import './styles/Account.css';
+import { useDataLayerValue } from '../DataLayer';
 import Menu from './Menu';
 import Body from './Body';
 import Footer from './Footer';

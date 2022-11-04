@@ -1,5 +1,6 @@
-@import url('./assets/constants/Colors.css');
-@import url('./assets/constants/Constants.css');
+@import url('../../assets/constants/Colors.css');
+@import url('../../assets/constants/Constants.css');
+
 
 .menu {
   position: fixed;

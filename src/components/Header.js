@@ -1,8 +1,7 @@
 import { Avatar } from '@mui/material';
 import React from 'react';
-import './Header.css';
-import { useDataLayerValue } from './DataLayer';
-import { sizeHeight } from '@mui/system';
+import './styles/Header.css';
+import { useDataLayerValue } from '../DataLayer';
 
 function Header() {
 

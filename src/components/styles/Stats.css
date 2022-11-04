@@ -1,6 +1,6 @@
-@import url('./assets/constants/Colors.css');
+@import url('../../assets/constants/Colors.css');
 
-.library {
+.stats {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,7 +10,7 @@
   color: var(--white);
 }
 
-.library h1 {
+.stats h1 {
   display: flex;
   align-items: center;
   justify-content: center;

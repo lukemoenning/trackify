@@ -1,12 +1,12 @@
 import React from 'react';
-import './Footer.css';
+import './styles/Footer.css';
 import { 
   PlayCircle, PauseCircle, Shuffle, Repeat, SkipNext, SkipPrevious,
   QueueMusic, VolumeDown, VolumeUp, FavoriteBorder 
 } from '@mui/icons-material';
 import { Slider } from '@mui/material';
-import { useDataLayerValue } from './DataLayer';
-import theme from './assets/constants/Colors';
+import { useDataLayerValue } from '../DataLayer';
+import theme from '../assets/constants/Colors';
 import { ThemeProvider } from '@emotion/react';
 
 function Footer() {
