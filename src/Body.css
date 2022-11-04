@@ -4,13 +4,16 @@
   display: flex; 
   flex-direction: column;
   position: relative;
-  height: 100vh;
   width: 100%;
   overflow-y: scroll;
   background: linear-gradient(var(--dark-grey), var(--black));
 
+
   /* NOT ALIGNING CORRECTLY SO SHIFT BY 20 PIXELS */
   margin-left: calc(var(--menu-width) + 20px);
+
+  /* NOT ALIGNING CORRECTLY SO SHIFT BY 20 PIXELS */
+  height: calc(100vh - var(--footer-height));
 }
 
 

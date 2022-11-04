@@ -1,38 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Body.css';
 import Header from './Header';
+import { useDataLayerValue } from './DataLayer';
+import Home from './Home';
+import Library from './Library';
+import Stats from './Stats';
 
 function Body() {
+
+  /**
+  * DataLayer
+  */
+  const [{currentBodyDisplay}, dispatch] = useDataLayerValue();
+
   return (
     <div className='body'>
       <Header />
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
+      
+      {(() => {
+        switch (currentBodyDisplay) {
+          case 'home':
+            return <Home/>;
+          {/* case 'search':
+            return <Search />; */}
+          case 'library':
+            return <Library />;
+          case 'stats':
+            return <Stats />;
+          default:
+            return null;
+        }
+      })()}
     </div>
   );
 }

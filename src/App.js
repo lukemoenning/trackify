@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Login from './Login';
 import Account from './Account';
@@ -16,7 +16,7 @@ function App() {
   /**
    * DataLayer
    */
-  const [{ token, user }, dispatch] = useDataLayerValue();
+  const [{ token }, dispatch] = useDataLayerValue();
 
   useEffect( () => {
     // Retrieve access token from URL
@@ -53,8 +53,6 @@ function App() {
         })
       });
 
-      
-
     }
   }, []);
 
@@ -66,4 +64,3 @@ function App() {
 }
 
 export default App;
-spotify.getRecommendations
