@@ -6,7 +6,7 @@ import Body from './Body';
 import Footer from './Footer';
 
 
-function Account() {
+function Account({ spotify }) {
 
   /**
   * DataLayer
@@ -16,7 +16,7 @@ function Account() {
   return (
     <div className='account'>
       <div className='account-wrap'>
-        <Menu />
+        <Menu spotify={spotify}/>
         <Body />
       </div>
 

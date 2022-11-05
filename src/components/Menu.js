@@ -6,31 +6,39 @@ import { Home, LibraryMusic, BarChart } from '@mui/icons-material';
 import { useDataLayerValue } from '../DataLayer';
 
 
-function Menu() {
+function Menu({ spotify }) {
 
   /**
   * DataLayer
   */
-  const [{ playlists }, dispatch] = useDataLayerValue();
+  const [{ playlists, displayedPlaylist }, dispatch] = useDataLayerValue();
 
   const handleIconClick = (newCurrentBodyDisplay) => {
     dispatch({
       type: "SET_CURRENT_BODY_DISPLAY",
       currentBodyDisplay: newCurrentBodyDisplay,
     });
-  }
 
-  const displayPlaylist = (playlist, newCurrentBodyDisplay) => {
+    // Reset displayedPlaylist
     dispatch({
       type: "SET_DISPLAYED_PLAYLIST",
-      displayedPlaylist: playlist,
+      displayedPlaylist: null,
     });
+  }
+
+  const displayPlaylist = (playlistID, newCurrentBodyDisplay) => {
+
+    spotify.getPlaylist(playlistID).then(playlist => 
+      dispatch({
+        type: "SET_DISPLAYED_PLAYLIST",
+        displayedPlaylist: playlist,
+      })
+    );
 
     dispatch({
       type: "SET_CURRENT_BODY_DISPLAY",
       currentBodyDisplay: newCurrentBodyDisplay,
     });
-
   }
 
   return (
@@ -57,7 +65,7 @@ function Menu() {
       {/* PLAYLISTS */}
       <div className='playlists'>
         {playlists?.items?.map(playlist => (
-          <div onClick={() => displayPlaylist(playlist, 'playlist')}>
+          <div onClick={() => displayPlaylist(playlist.id, 'playlist')}>
             <MenuItem text={playlist.name} />
           </div>
         ))}

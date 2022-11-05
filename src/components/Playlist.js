@@ -4,7 +4,7 @@ import Song from './Song';
 import { useDataLayerValue } from '../DataLayer';
 import { PlayCircle } from '@mui/icons-material';
 
-function Playlist(id) {
+function Playlist() {
 
   /**
   * DataLayer
@@ -20,57 +20,17 @@ function Playlist(id) {
 
         <div className='playlistBannerText'>
           <strong>PLAYLIST</strong>
-          <h1>{displayedPlaylist.name}</h1>
-          <h3>{user?.display_name} ∘ {displayedPlaylist?.tracks.total} Songs</h3>
+          <h1>{displayedPlaylist?.name}</h1>
+          <h3>{displayedPlaylist?.owner.display_name} ∘ {displayedPlaylist?.tracks.total} Songs</h3>
         </div>
       </div>
 
       <PlayCircle className='playCircle' style={{ fontSize: 75}}/>
  
       <div className='songs'>
-        {/* {displayedPlaylist.tracks.map((song) => (
-          <Song />
-        ))} */}
-
-
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
-        <Song />
+        {displayedPlaylist?.tracks?.items?.map(item => (
+          <Song track={item.track}/>
+        ))}
       </div>
 
     </div>

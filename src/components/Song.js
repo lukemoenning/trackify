@@ -1,10 +1,10 @@
 import React from 'react';
 import './styles/Song.css';
 
-function Song() {
+function Song({ track }) {
   return (
     <div className='song'>
-      <p>song</p>
+      <p>{track.name}</p>
     </div>
   );
 }
