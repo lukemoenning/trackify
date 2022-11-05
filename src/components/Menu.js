@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import './styles/Menu.css';
 import logo from '../assets/images/spotify_logo_white.png';
 import MenuItem from './MenuItem';
@@ -66,8 +65,8 @@ function Menu({ spotify }) {
       {/* PLAYLISTS */}
       <div className='playlists'>
         {playlists?.items?.map(playlist => (
-          <div onClick={() => displayPlaylist(playlist.id, 'playlist')}>
-            <MenuItem text={playlist.name} />
+          <div key={playlist.id} onClick={() => displayPlaylist(playlist.id, 'playlist')}>
+            <MenuItem key={playlist.id} text={playlist.name} />
           </div>
         ))}
       </div>

@@ -22,7 +22,7 @@ function Body() {
         switch (currentBodyDisplay) {
 
           case 'home':
-            return <Home/>;
+            return <Home />;
 
           case 'library':
             return <Library />;

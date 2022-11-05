@@ -29,7 +29,7 @@ function Playlist() {
  
       <div className='songs'>
         {displayedPlaylist?.tracks?.items?.map(item => (
-          <Song track={item.track}/>
+          <Song key={item.track.name} track={item.track}/>
         ))}
       </div>
 

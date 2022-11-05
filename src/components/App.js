@@ -53,6 +53,16 @@ function App() {
           playlists: playlists,
         })
       });
+
+      let options = {
+        'limit': 50,
+        'offset': 0,
+        'time_range': 'long_term',
+      }
+
+      spotify.getMyTopArtists(options).then(artists => {
+        artists?.items?.map(item => console.log(item.name));
+      });
     }
   }, []);
 
