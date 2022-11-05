@@ -14,9 +14,24 @@ function Song({ track }) {
   
       <p>{track?.album?.name}</p>
 
-      <p>{track?.duration_ms}</p>
+      <p>{msToMinutes(track?.duration_ms)}</p>
     </div>
   );
+}
+
+
+/**
+ * Convert from milliseconds to seconds
+ * @param {number} ms 
+ * @returns {String}
+ */
+function msToMinutes(ms) {
+  const minutes = Math.floor(ms / 60000);
+  const seconds = Math.floor((ms % 60000) / 1000);
+
+  return seconds === 60
+    ? `${minutes + 1}:00`
+    : `${minutes}:${seconds.toString().padStart(2, '0')}`;
 }
 
 export default Song;
