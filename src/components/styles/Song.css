@@ -19,6 +19,7 @@
   width: 30%;
   height: auto;
   overflow: hidden;
+  /* text-overflow: ellipsis; */
   margin: 0 10px 0 10px;
 }
 
@@ -45,10 +46,12 @@
   padding-left: 10px;
 }
 
-.name {
+.name, .album{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   padding: 2px;
   height: 20px;
-  overflow: hidden;
 }
 
 .artist {

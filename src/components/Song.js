@@ -5,7 +5,6 @@ import './styles/Song.css';
 function Song({ track }) {
   return (
     <div className='song'>
-      {console.log(track)}
 
       <div className='leftInfo'>
 

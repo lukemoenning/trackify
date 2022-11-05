@@ -39,6 +39,7 @@ function Menu({ spotify }) {
       type: "SET_CURRENT_BODY_DISPLAY",
       currentBodyDisplay: newCurrentBodyDisplay,
     });
+
   }
 
   return (
