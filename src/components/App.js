@@ -16,27 +16,27 @@ function App() {
   /**
    * DataLayer
    */
-  const [{ token }, dispatch] = useDataLayerValue();
+  const [{ token, displayedPlaylist }, dispatch] = useDataLayerValue();
 
   useEffect( () => {
     // Retrieve access token from URL
     const hash = getAccessTokenFromURL();
-    const _token = hash.access_token;
+    const newToken = hash.access_token;
 
     // Remove the access token from the URL for security reasons
     window.location.hash = ''; 
 
 
     // If the retrieved token exists, set accountToken and spotify object
-    if (_token) {
+    if (newToken) {
 
       // Push token into DataLayer
       dispatch({
         type: "SET_TOKEN",
-        token: _token,
+        token: newToken,
       });
 
-      spotify.setAccessToken(_token);
+      spotify.setAccessToken(newToken);
 
       // Push user into DataLayer
       spotify.getMe().then(user => {

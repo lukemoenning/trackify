@@ -31,7 +31,6 @@ function Menu() {
       currentBodyDisplay: newCurrentBodyDisplay,
     });
 
-    console.log(playlist);
   }
 
   return (
