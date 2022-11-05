@@ -1,3 +1,15 @@
+@import url('../../assets/constants/Colors.css');
+
 .song {
-  color: white;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: auto;
+  color: var(--white);
+  
+}
+
+.song:hover {
+  background-color: var(--dark-grey);
+  opacity: 0.8;
 }
