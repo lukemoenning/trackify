@@ -6,10 +6,56 @@
   height: 60px;
   width: auto;
   color: var(--white);
-  
 }
 
 .song:hover {
   background-color: var(--dark-grey);
-  opacity: 0.8;
+  opacity: 1;
+}
+
+.leftInfo, .album, .duration {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  height: auto;
+  overflow: hidden;
+  margin: 0 10px 0 10px;
+}
+
+.leftInfo {
+  width: 40%;
+}
+
+.leftInfo img {
+  margin-left: 10px;
+}
+
+.blankAlbumImage {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
+  background-color: var(--light-grey);
+
+}
+
+.nameAndArtist {
+  padding-left: 10px;
+}
+
+.name {
+  padding: 2px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.artist {
+  padding: 2px;
+  font-size: small;
+}
+
+.duration {
+  justify-content: center;
 }
