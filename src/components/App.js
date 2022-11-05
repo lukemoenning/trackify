@@ -3,20 +3,20 @@ import './styles/App.css';
 import Login from './Login';
 import Account from './Account';
 import { getAccessTokenFromURL } from '../spotify';
-import SpotifyWebApi from 'spotify-web-api-js';
+// import SpotifyWebApi from 'spotify-web-api-js';
 import { useDataLayerValue } from '../DataLayer';
 
 /**
  * Spotify Web API object
  */
-const spotify = new SpotifyWebApi();
+// const spotify = new SpotifyWebApi();
 
 function App() {
 
   /**
    * DataLayer
    */
-  const [{ token, displayedPlaylist }, dispatch] = useDataLayerValue();
+  const [{ token, spotify }, dispatch] = useDataLayerValue();
 
   useEffect( () => {
     // Retrieve access token from URL
@@ -68,7 +68,7 @@ function App() {
 
   return (
     <div className="app"> 
-      {token ? (<Account spotify={spotify}/>) : (<Login />)}
+      {token ? (<Account />) : (<Login />)}
     </div>
   );
 }

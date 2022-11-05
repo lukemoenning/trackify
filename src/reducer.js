@@ -1,13 +1,16 @@
+import SpotifyWebApi from 'spotify-web-api-js';
+
+/**
+ * Spotify Web API object
+ */
+const spotify = new SpotifyWebApi();
+
 /**
  * Data the DataLayer is listening for
  */
 export const initialState = {
-
+    spotify: spotify,
     token: null,
-
-    /**CHANGE BACK TO NULL AFTER DEVELOPMENT */
-    // token: 'BQAeZdi6s89RI8Ug5o2ctfXLO24moYZNd9_M0NSMbCOUhT7rn7bNikwBGAxd5WiQFXSWNt7hQaHb3t1EZiWadgXXsiFGMG-RdtM9U4S7pXCRD1Q9HCmMJ5azb4gUgNN2GaInpJttKaSwqJZaGzSILRaaEToeaVJCJb4eH-wThJDQxpX2jBltf1x6iM',
-    
     currentBodyDisplay: 'home',
     user: null,
     playlists: null,

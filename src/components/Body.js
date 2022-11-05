@@ -12,7 +12,7 @@ function Body() {
   /**
   * DataLayer
   */
-  const [{currentBodyDisplay}, dispatch] = useDataLayerValue();
+  const [{ currentBodyDisplay }, dispatch] = useDataLayerValue();
 
   return (
     <div className='body'>

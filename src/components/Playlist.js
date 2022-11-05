@@ -9,7 +9,7 @@ function Playlist() {
   /**
   * DataLayer
   */
-  const [{displayedPlaylist, user}, dispatch] = useDataLayerValue();
+  const [{ displayedPlaylist }, dispatch] = useDataLayerValue();
 
 
   return (

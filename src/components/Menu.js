@@ -5,12 +5,12 @@ import { Home, LibraryMusic, BarChart } from '@mui/icons-material';
 import { useDataLayerValue } from '../DataLayer';
 
 
-function Menu({ spotify }) {
+function Menu() {
 
   /**
   * DataLayer
   */
-  const [{ playlists, displayedPlaylist }, dispatch] = useDataLayerValue();
+  const [{ spotify, playlists }, dispatch] = useDataLayerValue();
 
   const handleIconClick = (newCurrentBodyDisplay) => {
     dispatch({
