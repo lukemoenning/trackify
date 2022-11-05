@@ -29,7 +29,7 @@ function Body() {
 
           case 'stats':
             return <Stats />;
-
+              
           case 'playlist':
             return <Playlist id='' />
 

@@ -1,0 +1,7 @@
+@import url('../../assets/constants/Colors.css');
+
+.artistProfile {
+  display: flex;
+  color: var(--white);
+  /* background-color: tan; */
+}

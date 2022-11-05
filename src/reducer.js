@@ -15,6 +15,7 @@ export const initialState = {
     user: null,
     playlists: null,
     displayedPlaylist: null,
+    topArtistsLong: null,
 };
 
 const reducer = (state, action) => {
@@ -55,6 +56,13 @@ const reducer = (state, action) => {
       return {
         ...state, 
         displayedPlaylist: action.displayedPlaylist,
+      };
+
+    // Return current state with the topArtistsLong updated
+    case "SET_TOP_ARTISTS_LONG":
+      return {
+        ...state, 
+        topArtistsLong: action.topArtistsLong,
       };
 
     // Return unmodified state

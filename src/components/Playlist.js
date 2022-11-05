@@ -11,7 +11,6 @@ function Playlist() {
   */
   const [{ displayedPlaylist }, dispatch] = useDataLayerValue();
 
-
   return (
     <div className='playlist'>
 
