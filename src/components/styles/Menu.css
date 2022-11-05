@@ -37,21 +37,4 @@
 }
 
 
-/* SCROLLBAR */
-.playlists::-webkit-scrollbar {
-  width: 10px;
-}
 
-.playlists::-webkit-scrollbar-track {
-  border-radius: 25px;
-}
-
-.playlists::-webkit-scrollbar-thumb {
-  background-color: var(--light-grey); 
-  border-radius: 25px;
-}
-
-.playlists::-webkit-scrollbar-thumb:hover {
-  color: var(--white);
-  cursor: pointer;
-}

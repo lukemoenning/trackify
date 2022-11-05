@@ -16,23 +16,3 @@
   height: calc(100vh - var(--footer-height));
 }
 
-
-
-/* SCROLLBAR */
-.body::-webkit-scrollbar {
-  width: 10px;
-}
-
-.body::-webkit-scrollbar-track {
-  border-radius: 25px;
-}
-
-.body::-webkit-scrollbar-thumb {
-  background-color: var(--light-grey); 
-  border-radius: 25px;
-}
-
-.body::-webkit-scrollbar-thumb:hover {
-  color: var(--white);
-  cursor: pointer;
-}
