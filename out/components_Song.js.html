@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: spotify.js</title>
+    <title>JSDoc: Source: components/Song.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: spotify.js</h1>
+    <h1 class="page-title">Source: components/Song.js</h1>
 
     
 
@@ -27,56 +27,53 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * The base URL for the Spotify authrozation URL.
+ * Display the album cover, title, artists, album name, and duration in minutes of a song
  */
-const authorizationEndpoint = "https://accounts.spotify.com/authorize";
+import React from 'react';
+import './styles/Song.css';
+import { MusicNote } from '@mui/icons-material';
+
+
+function Song({ track }) {
+  return (
+    &lt;div className='song'>
+
+      &lt;div className='leftInfo'>
+
+        {/* If the album image exists display it, otherwise display the blank album image */}
+        {track?.album?.images[0] 
+          ? (&lt;img src={track?.album?.images[0]?.url} alt={track.name} height={40} width={40}>&lt;/img>)
+          : (&lt;div className='blankAlbumImage'>&lt;MusicNote style={{ fontSize: 20}} />&lt;/div>)}
+
+        &lt;div className='nameAndArtist'>
+          &lt;p className='name'>{track?.name}&lt;/p>
+          &lt;p className='artist'>{track?.artists?.map(artist => artist.name + ' ')}&lt;/p>
+        &lt;/div>
+      &lt;/div>
+
+      &lt;p className='album'>{track?.album?.name}&lt;/p>
+
+      &lt;p className='duration'>{msToMinutes(track?.duration_ms)}&lt;/p>
+    &lt;/div>
+  );
+}
+
 
 /**
-* The URL the Spotify authorization will redirect to after it is complete.
-*/
-const redirectURI = "http://localhost:3000/";
+ * Convert from milliseconds to seconds
+ * @param {number} ms 
+ * @returns {String}
+ */
+function msToMinutes(ms) {
+  const minutes = Math.floor(ms / 60000);
+  const seconds = Math.floor((ms % 60000) / 1000);
 
-/**
-* A unique Client ID which is linked to the project on Spotfiy for Developers.
-*/
-const clientID = "5fe24f726a784ced9a2133098d1b6db1";
+  return seconds === 60
+    ? `${minutes + 1}:00`
+    : `${minutes}:${seconds.toString().padStart(2, '0')}`;
+}
 
-/**
-* The scopes for which the access code will authorize access for. 
-*/
-const scopes = [
-  "user-read-currently-playing",
-  "user-read-recently-played",
-  "user-read-playback-state",
-  "user-top-read",
-  "user-modify-playback-state",
-];
-
-/**
-* The URL to login with Spotify.
-*/
-export const loginURL = `${authorizationEndpoint}` +
-  `?client_id=${clientID}` +
-  `&amp;redirect_uri=${redirectURI}` +
-  `&amp;scope=${scopes.join("%20")}` +
-  `&amp;response_type=token` +
-  `&amp;show_dialog=true`; 
-
-/**
-* Gets the access token from the URL after the Spotfiy authorization is complete.
-* 
-* @returns {string} Spotify access token
-*/
-export const getAccessTokenFromURL = () => {
-  return window.location.hash
-    .substring(1)
-    .split("&amp;")
-    .reduce((initial, item) => {
-      let parts = item.split("=");
-      initial[parts[0]] = decodeURIComponent(parts[1]);
-      return initial;
-    }, {});
-};</code></pre>
+export default Song;</code></pre>
         </article>
     </section>
 
