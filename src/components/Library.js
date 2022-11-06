@@ -1,3 +1,7 @@
+/**
+ * The Your Library component after the user chooses to display it
+ */
+
 import React from 'react';
 import './styles/Library.css';
 

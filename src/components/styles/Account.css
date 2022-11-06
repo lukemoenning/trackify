@@ -1,3 +1,8 @@
-.account-wrap {
+
+/* WRAPPER FOR THE MENU AND BODY COMPONENTS */
+
+.menuAndBodyWrap {
   display: flex;
 }
+
+/* ***** ***** ***** ***** ***** */

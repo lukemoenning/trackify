@@ -1,7 +1,12 @@
 @import url('../../assets/constants/Colors.css');
 
+
+
+/* PARENT DIV */
+
 .artistProfile {
   display: flex;
   color: var(--white);
-  /* background-color: tan; */
 }
+
+/* ***** ***** ***** ***** ***** */

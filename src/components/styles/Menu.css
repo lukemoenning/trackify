@@ -2,6 +2,9 @@
 @import url('../../assets/constants/Constants.css');
 
 
+
+/* PARENT DIV */
+
 .menu {
   position: fixed;
   display: flex; 
@@ -29,12 +32,20 @@
   border-top: 1px solid var(--light-grey);
 }
 
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* PLAYLIST TITLES */
+
 .playlists {
   padding-left: 10px;
   position: relative;
   max-height: 50vh;
   overflow-y: scroll;
 }
+
+/* ***** ***** ***** ***** ***** */
 
 
 

@@ -1,15 +1,19 @@
+/**
+ * 
+ */
+
 import './styles/Menu.css';
 import logo from '../assets/images/spotify_logo_white.png';
+import { useDataLayerValue } from '../DataLayer';
 import MenuItem from './MenuItem';
 import { Home, LibraryMusic, BarChart } from '@mui/icons-material';
-import { useDataLayerValue } from '../DataLayer';
 
 
 function Menu() {
 
   /**
-  * DataLayer
-  */
+   * DataLayer
+   */
   const [{ spotify, playlists }, dispatch] = useDataLayerValue();
 
   const fetchStats = (newCurrentBodyDisplay) => {

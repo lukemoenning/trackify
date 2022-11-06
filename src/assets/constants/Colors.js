@@ -1,3 +1,5 @@
+// Spotfiy color palette for mui themes
+
 import { createTheme } from '@mui/material';
 
 const theme = createTheme({

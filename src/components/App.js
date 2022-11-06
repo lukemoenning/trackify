@@ -1,15 +1,16 @@
+/**
+ * Initial app
+ * 
+ * If a login has already occured will load Account, otherwise will promp a login with the Login component 
+ */
+
 import React, { useEffect } from 'react';
 import './styles/App.css';
+import { useDataLayerValue } from '../DataLayer';
+import { getAccessTokenFromURL } from '../spotify';
 import Login from './Login';
 import Account from './Account';
-import { getAccessTokenFromURL } from '../spotify';
-// import SpotifyWebApi from 'spotify-web-api-js';
-import { useDataLayerValue } from '../DataLayer';
 
-/**
- * Spotify Web API object
- */
-// const spotify = new SpotifyWebApi();
 
 function App() {
 

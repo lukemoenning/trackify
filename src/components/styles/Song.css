@@ -1,5 +1,9 @@
 @import url('../../assets/constants/Colors.css');
 
+
+
+/* PARENT DIV */
+
 .song {
   display: flex;
   align-items: center;
@@ -13,15 +17,26 @@
   opacity: 1;
 }
 
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* ALL THREE SECTIONS OF SONG INFORMATION  */
+
 .leftInfo, .album, .duration {
   display: flex;
   align-items: center;
   width: 30%;
   height: auto;
   overflow: hidden;
-  /* text-overflow: ellipsis; */
   margin: 0 10px 0 10px;
 }
+
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* ALBUM COVER, SONG NAME, AND ARTISTS */
 
 .leftInfo {
   width: 40%;
@@ -39,12 +54,38 @@
   width: 40px;
   margin-left: 10px;
   background-color: var(--light-grey);
-
 }
 
 .nameAndArtist {
   padding-left: 10px;
 }
+
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* ARTIST INFORMATION */
+
+.artist {
+  padding: 2px;
+  font-size: small;
+}
+
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* SONG DURATION INFOMRATION */
+
+.duration {
+  justify-content: center;
+}
+
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* HANDLE OVERFLOW FOR TEXT FIELDS */
 
 .name, .album{
   text-overflow: ellipsis;
@@ -54,11 +95,5 @@
   height: 20px;
 }
 
-.artist {
-  padding: 2px;
-  font-size: small;
-}
+/* ***** ***** ***** ***** ***** */
 
-.duration {
-  justify-content: center;
-}

@@ -1,5 +1,12 @@
+/**
+ * Component to be displayed in the menu
+ * 
+ * Either a section button (Home, Your Library, Your Stats) or a user playlist
+ */
+
 import React from 'react';
 import './styles/MenuItem.css';
+
 
 function MenuItem({ text, Icon}) {
   return (

@@ -1,14 +1,21 @@
-import { Avatar } from '@mui/material';
+/**
+ * Header section after a successful login
+ * 
+ * Contains profile name and profile image of the user
+ */
+
 import React from 'react';
 import './styles/Header.css';
 import { useDataLayerValue } from '../DataLayer';
+import { Avatar } from '@mui/material';
+
 
 function Header() {
 
   /**
    * DataLayer
    */
-   const [{ user }, dispatch] = useDataLayerValue();
+  const [{ user }, dispatch] = useDataLayerValue();
 
   return (
     <div className='header'>

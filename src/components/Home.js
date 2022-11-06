@@ -1,3 +1,7 @@
+/**
+ * The home component after the user chooses to display it
+ */
+
 import React from 'react';
 import './styles/Home.css';
 

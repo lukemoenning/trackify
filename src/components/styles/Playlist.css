@@ -1,14 +1,23 @@
 @import url('../../assets/constants/Colors.css');
 
+
+
+/* PARENT DIV */
+
 .playlist {
   display: flex;
   flex-direction: column;
   color: var(--white);
-  /* background-color: tan; */
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* WRAPPER FOR PLAYLIST INFORMATION */
 
 .playlistBanner {
   display: flex;
@@ -18,9 +27,14 @@
   padding-top: 50px;
   height: 400px;
   width: 100%;
-  /* background-color: aquamarine; */
   text-shadow: 2px 2px 2px var(--dark-black);
 }
+
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* WRAPPER FOR PLAYLIST TEXT INFORMATION  */
 
 .playlistBannerText {
   display: flex; 
@@ -46,16 +60,29 @@
   margin-top: 10px;
 }
 
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* PLAY BUTTON */
+
 .playCircle {
   margin: 0px 0px 30px 30px;
 }
+
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* WRAPPER FOR SONGS */
 
 .songs {
   display: flex;
   flex-direction: column;
   margin-left: 30px;
   height: auto;
-  /* background-color: tan; */
 }
+
+/* ***** ***** ***** ***** ***** */
 
 

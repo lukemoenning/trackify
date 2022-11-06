@@ -1,3 +1,6 @@
+
+/* PARENT DIV */
+
 .menuItem {
   display: flex;
   align-items: center;
@@ -10,7 +13,15 @@
   color: var(--white);
 }
 
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* ICON FOR THE MENU ITEM */
+
 .menuItemIcon {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+/* ***** ***** ***** ***** ***** */

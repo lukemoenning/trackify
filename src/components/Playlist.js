@@ -1,8 +1,15 @@
-import React, { useEffect } from 'react';
+/**
+ * Playlist component to load an opened playlist
+ * 
+ * Retrieve songs from the playlist and create a Song component for each
+ */
+
+import React from 'react';
 import './styles/Playlist.css';
-import Song from './Song';
 import { useDataLayerValue } from '../DataLayer';
+import Song from './Song';
 import { PlayCircle } from '@mui/icons-material';
+
 
 function Playlist() {
 

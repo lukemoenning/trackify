@@ -1,6 +1,10 @@
-import { MusicNote } from '@mui/icons-material';
+/**
+ * Display the album cover, title, artists, album name, and duration in minutes of a song
+ */
 import React from 'react';
 import './styles/Song.css';
+import { MusicNote } from '@mui/icons-material';
+
 
 function Song({ track }) {
   return (

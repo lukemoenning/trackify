@@ -1,5 +1,9 @@
 @import url('../../assets/constants/Constants.css');
 
+
+
+/* PARENT DIV */
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -12,12 +16,22 @@
   color: var(--white);
 }
 
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* ICONS */
+
 .footerIcon:hover, .footerIconHighlightable:hover {
   transition: transform 200ms ease-in;
   transform: scale(1.2) !important;
 }
 
+/* ***** ***** ***** ***** ***** */
 
+
+
+/* SONG INFO DIV */
 
 .songInfo {
   display: flex;
@@ -26,13 +40,18 @@
   margin-left: 10px;
 }
 
-.footerAlbumPhoto {
+/* CURRENT SONG ALBUM COVER */
+/* .footerAlbumPhoto {
   height: 60px;
   width: 60px;
   object-fit: contain;
-}
+} */
+
+/* ***** ***** ***** ***** ***** */
 
 
+
+/* PLAY CONTROLS DIV */
 
 .playControls {
   display: flex;
@@ -42,7 +61,11 @@
   justify-content: space-evenly;
 }
 
+/* ***** ***** ***** ***** ***** */
 
+
+
+/* VOLUME CONTROLS DIV */
 
 .volumeControls {
   display: flex;
@@ -56,3 +79,6 @@
 .footerSlider {
   max-width: 100px;
 }
+
+/* ***** ***** ***** ***** ***** */
+

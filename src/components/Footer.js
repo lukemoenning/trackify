@@ -1,20 +1,27 @@
+/**
+ * Footer section after a successful login
+ * 
+ * Displays the current playing song information as well as play and volume controls
+ */
+
 import React from 'react';
 import './styles/Footer.css';
+import { useDataLayerValue } from '../DataLayer';
+import { Slider } from '@mui/material';
+import { ThemeProvider } from '@emotion/react';
+import theme from '../assets/constants/Colors';
 import { 
   PlayCircle, PauseCircle, Shuffle, Repeat, SkipNext, SkipPrevious,
   QueueMusic, VolumeDown, VolumeUp, FavoriteBorder 
 } from '@mui/icons-material';
-import { Slider } from '@mui/material';
-import { useDataLayerValue } from '../DataLayer';
-import theme from '../assets/constants/Colors';
-import { ThemeProvider } from '@emotion/react';
+
 
 function Footer() {
 
   /**
    * DataLayer
    */
-   const [{ }, dispatch] = useDataLayerValue();
+  const [{ }, dispatch] = useDataLayerValue();
 
   return (
     <div className='footer'>

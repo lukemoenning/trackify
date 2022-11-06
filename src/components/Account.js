@@ -1,3 +1,7 @@
+/**
+ * Main page displayed after a successful login
+ */
+
 import React from 'react';
 import './styles/Account.css';
 import { useDataLayerValue } from '../DataLayer';
@@ -9,14 +13,14 @@ import Footer from './Footer';
 function Account() {
 
   /**
-  * DataLayer
-  */
+   * DataLayer
+   */
   const [{}, dispatch] = useDataLayerValue();
 
 
   return (
     <div className='account'>
-      <div className='account-wrap'>
+      <div className='menuAndBodyWrap'>
         <Menu />
         <Body />
       </div>

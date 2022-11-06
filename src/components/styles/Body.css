@@ -1,5 +1,9 @@
 @import url('../../assets/constants/Colors.css');
 
+
+
+/* PARENT DIV */
+
 .body {
   display: flex; 
   flex-direction: column;
@@ -7,12 +11,11 @@
   width: 100%;
   overflow-y: scroll;
   background: linear-gradient(var(--dark-grey), var(--black));
-
+  height: calc(100vh - var(--footer-height));
 
   /* NOT ALIGNING CORRECTLY SO SHIFT BY 20 PIXELS */
   margin-left: calc(var(--menu-width) + 20px);
-
-  /* NOT ALIGNING CORRECTLY SO SHIFT BY 20 PIXELS */
-  height: calc(100vh - var(--footer-height));
 }
+
+/* ***** ***** ***** ***** ***** */
 

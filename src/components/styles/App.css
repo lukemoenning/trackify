@@ -1,6 +1,9 @@
 @import url('../../assets/constants/Colors.css');
 
-/* SCROLLBAR */
+
+
+/* UNIVERSAL SCROLLBAR */
+
 *::-webkit-scrollbar {
   width: 8px;
 }
@@ -18,3 +21,5 @@
   color: var(--white);
   cursor: pointer;
 }
+
+/* ***** ***** ***** ***** ***** */
