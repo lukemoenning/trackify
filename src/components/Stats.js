@@ -2,6 +2,7 @@
  * The Your Stats component after the user chooses to display it
  * 
  * Contains options for the stats the user wishes to view. 
+ * 
  * Possibilities are: 
  *    Top Artists for 4 weeks, 6 months, and all time.
  *    Top Tracks for 4 weeks, 6 months, and all time. 
@@ -34,20 +35,5 @@ function Stats() {
     </div>
   );
 }
-
-// function fetchStats(spotify, dispatch) {
-
-//   const optionsLong = {
-//     'limit': 50,
-//     'offset': 0,
-//     'time_range': 'long_term',
-//   }
-
-//   spotify.getMyTopArtists(optionsLong).then(topArtistsLong => 
-//     dispatch({
-//       type: "SET_TOP_ARTISTS_LONG",
-//       topArtistsLong: topArtistsLong,
-//     }))
-// }
 
 export default Stats;
