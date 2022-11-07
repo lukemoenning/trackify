@@ -17,8 +17,8 @@ import ArtistProfile from './ArtistProfile';
 function Stats() {
 
   /**
-  * DataLayer
-  */
+   * DataLayer
+   */
   const [{ topArtistsLong }, dispatch] = useDataLayerValue();
 
   
@@ -28,9 +28,11 @@ function Stats() {
       <br /> <br /> 
       <h1>Check back in later!</h1>
 
-      {topArtistsLong?.items?.map(artist => (
-        <ArtistProfile key={artist.name} artist={artist}/>
-      ))}
+      <div className='statsBody'>
+        {topArtistsLong?.items?.map(artist => (
+          <ArtistProfile key={artist.name} artist={artist}/>
+        ))}
+      </div>
 
     </div>
   );

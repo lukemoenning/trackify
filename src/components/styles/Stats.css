@@ -22,3 +22,18 @@
 }
 
 /* ***** ***** ***** ***** ***** */
+
+
+
+/* BODY */
+
+.statsBody {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: none;
+  width: 100%;
+  outline: 1px solid red;
+}
+
+/* ***** ***** ***** ***** ***** */

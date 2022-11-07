@@ -6,7 +6,47 @@
 
 .artistProfile {
   display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 20px;
+  height:300px;
+  width: 250px;
+  background-color: var(--dark-grey);
   color: var(--white);
+}
+
+.artistProfile:hover {
+  background-color: var(--light-grey);
+}
+
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* ARTIST PHOTO */
+
+.pfp {
+  align-self: center;
+}
+
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* ARTIST NAME */
+
+.artistProfile h2 {
+  padding-left: 10px;
+}
+
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* ARTIST LABEL */
+
+.artistProfile p {
+  padding-left: 10px;
 }
 
 /* ***** ***** ***** ***** ***** */

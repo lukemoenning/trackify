@@ -13,6 +13,7 @@
   height: 60px;
   width: calc(100% - var(--menu-width));
   overflow-x: hidden;
+  z-index: 1;
 }
 
 /* ***** ***** ***** ***** ***** */
