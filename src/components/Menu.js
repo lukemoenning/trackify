@@ -17,7 +17,7 @@ function Menu() {
   /**
    * DataLayer
    */
-  const [{ spotify, playlists, topSongsShort, topSongsMedium, topSongsLong,
+  const [{ spotify, playlists, topTracksShort, topTracksMedium, topTracksLong,
     topArtistsShort, topArtistsMedium, topArtistsLong }, dispatch] = useDataLayerValue();
 
 
@@ -28,7 +28,7 @@ function Menu() {
       <img src={logo} alt='Spotfiy Logo'></img>
 
       {/* MAIN ICONS */}
-      
+
       <div onClick={() => handleIconClick(dispatch, 'home')}>
         <MenuItem text='Home' Icon={Home}/>
       </div>
@@ -38,7 +38,7 @@ function Menu() {
       </div>
 
       <div onClick={() => fetchUserStats(spotify, dispatch, 'stats', 
-                                          topSongsShort, topSongsMedium, topSongsLong,
+                                          topTracksShort, topTracksMedium, topTracksLong,
                                           topArtistsShort, topArtistsMedium, topArtistsLong)}>
         <MenuItem text='Your Stats' Icon={BarChart}/>
       </div>

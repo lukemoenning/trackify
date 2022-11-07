@@ -3,7 +3,7 @@
  */
 
 
-import { fetchTopSongsShort, fetchTopSongsMedium, fetchTopSongsLong, 
+import { fetchTopTracksShort, fetchTopTracksMedium, fetchTopTracksLong, 
   fetchTopArtistsShort, fetchTopArtistsMedium, fetchTopArtistsLong } from './fetchStats';
 
 
@@ -14,9 +14,9 @@ import { fetchTopSongsShort, fetchTopSongsMedium, fetchTopSongsLong,
    * @param {*} spotify 
    * @param {*} dispatch 
    * @param {String} setDisplayStats - 'stats'
-   * @param {*} topSongsShort - current topSongsShort
-   * @param {*} topSongsMedium - current topSongsMedium
-   * @param {*} topSongsLong - current topSongsLong
+   * @param {*} topTracksShort - current topSongsShort
+   * @param {*} topTracksMedium - current topSongsMedium
+   * @param {*} topTracksLong - current topSongsLong
    * @param {*} topArtistsShort - current topArtistsShort
    * @param {*} topArtistsMedium - current topArtistsMedium
    * @param {*} topArtistsLong - current topArtistsLong
@@ -39,9 +39,9 @@ export const fetchUserStats = (spotify, dispatch, setDisplayStats,
   });
 
   // Fetch each Top Songs Range if it does not already exist
-  if (topSongsShort==null) {fetchTopSongsShort(spotify, dispatch);}
-  if (topSongsMedium==null) {fetchTopSongsMedium(spotify, dispatch);}
-  if (topSongsLong==null) {fetchTopSongsLong(spotify, dispatch);}
+  if (topSongsShort==null) {fetchTopTracksShort(spotify, dispatch);}
+  if (topSongsMedium==null) {fetchTopTracksMedium(spotify, dispatch);}
+  if (topSongsLong==null) {fetchTopTracksLong(spotify, dispatch);}
 
   // Fetch each Top Artists Range if it does not already exist
   if (topArtistsShort==null) {fetchTopArtistsShort(spotify, dispatch);}

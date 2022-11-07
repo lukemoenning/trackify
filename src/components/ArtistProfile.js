@@ -13,7 +13,7 @@ function ArtistProfile({ artist }) {
   return (
     <div className='artistProfile'>
       <Avatar className='pfp' src={artist?.images[0]?.url} alt={artist.name} sx={{height: 200, width: 200}}/>
-      <h2>{artist.name}</h2>
+      <h2>{artist?.name}</h2>
       <p>Artist</p>
     </div>
   );

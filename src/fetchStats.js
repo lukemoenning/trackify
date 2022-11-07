@@ -35,11 +35,11 @@ const optionsLong = {
  * @param {*} spotify 
  * @param {*} dispatch 
  */
- export const fetchTopSongsShort = (spotify, dispatch) => {
-  spotify.getMyTopSongs(optionsShort).then(topSongsShort => 
+ export const fetchTopTracksShort = (spotify, dispatch) => {
+  spotify.getMyTopTracks(optionsShort).then(topTracksShort => 
     dispatch({
-      type: "SET_TOP_SONGS_SHORT",
-      topSongsShort: topSongsShort,
+      type: "SET_TOP_TRACKS_SHORT",
+      topTracksShort: topTracksShort,
     }))
 }
 
@@ -50,11 +50,11 @@ const optionsLong = {
  * @param {*} spotify 
  * @param {*} dispatch 
  */
- export const fetchTopSongsMedium = (spotify, dispatch) => {
-  spotify.getMyTopSongs(optionsMedium).then(topArtistsMedium => 
+ export const fetchTopTracksMedium = (spotify, dispatch) => {
+  spotify.getMyTopTracks(optionsMedium).then(topTracksMedium => 
     dispatch({
-      type: "SET_TOP_ARTISTS_MEDIUM",
-      topArtistsMedium: topArtistsMedium,
+      type: "SET_TOP_TRACKS_MEDIUM",
+      topTracksMedium: topTracksMedium,
     }))
 }
 
@@ -65,11 +65,11 @@ const optionsLong = {
  * @param {*} spotify 
  * @param {*} dispatch 
  */
- export const fetchTopSongsLong = (spotify, dispatch) => {
-  spotify.getMyTopSongs(optionsLong).then(topArtistsLong => 
+ export const fetchTopTracksLong = (spotify, dispatch) => {
+  spotify.getMyTopTracks(optionsLong).then(topTracksLong => 
     dispatch({
-      type: "SET_TOP_ARTISTS_LONG",
-      topArtistsLong: topArtistsLong,
+      type: "SET_TOP_TRACKS_LONG",
+      topTracksLong: topTracksLong,
     }))
 }
 
@@ -82,7 +82,7 @@ const optionsLong = {
  * @param {*} dispatch 
  */
  export const fetchTopArtistsShort = (spotify, dispatch) => {
-  spotify.getMyTopShort(optionsShort).then(topArtistsShort => 
+  spotify.getMyTopArtists(optionsShort).then(topArtistsShort => 
     dispatch({
       type: "SET_TOP_ARTISTS_SHORT",
       topArtistsShort: topArtistsShort,
@@ -96,7 +96,7 @@ const optionsLong = {
  * @param {*} dispatch 
  */
  export const fetchTopArtistsMedium = (spotify, dispatch) => {
-  spotify.getMyTopMedium(optionsMedium).then(topArtistsMedium => 
+  spotify.getMyTopArtists(optionsMedium).then(topArtistsMedium => 
     dispatch({
       type: "SET_TOP_ARTISTS_MEDIUM",
       topArtistsMedium: topArtistsMedium,
@@ -111,7 +111,7 @@ const optionsLong = {
  * @param {*} dispatch Long
  */
  export const fetchTopArtistsLong = (spotify, dispatch) => {
-  spotify.getMyTopShort(optionsLong).then(topArtistsLong => 
+  spotify.getMyTopArtists(optionsLong).then(topArtistsLong => 
     dispatch({
       type: "SET_TOP_ARTISTS_LONG",
       topArtistsLong: topArtistsLong,

@@ -12,21 +12,21 @@ export const initialState = {
     spotify: spotify,
     token: null,
     user: null,
-
     currentBodyDisplay: 'home',
-    currentStatsTitle: 'songs',
-    currentStatsRange: 'short',
     playlists: null,
     displayedPlaylist: null,
 
 
     // USER STATS
-    topSongsShort: null,
-    topSongsMedium: null,
-    topSongsLong: null,
+    topTracksShort: null,
+    topTracksMedium: null,
+    topTracksLong: null,
     topArtistsShort: null,
     topArtistsMedium: null,
     topArtistsLong: null,
+
+    currentStatsTitle: 'tracks',
+    currentStatsRange: 'short',
 };
 
 const reducer = (state, action) => {
@@ -87,25 +87,25 @@ const reducer = (state, action) => {
 
     /** USER STATS */
 
-    // Return current state with the topSongsShort updated
-    case "SET_TOP_SONGS_SHORT":
+    // Return current state with the topTracksShort updated
+    case "SET_TOP_TRACKS_SHORT":
     return {
       ...state, 
-      topSongsShort: action.topSongsShort,
+      topTracksShort: action.topTracksShort,
     };
 
-    // Return current state with the topSongsMedium updated
-    case "SET_TOP_SONGS_MEDIUM":
+    // Return current state with the topTracksMedium updated
+    case "SET_TOP_TRACKS_MEDIUM":
     return {
       ...state, 
-      topSongsMedium: action.topSongsMedium,
+      topTracksMedium: action.topTracksMedium,
     };
 
-    // Return current state with the topSongsLong updated
-    case "SET_TOP_SONGS_LONG":
+    // Return current state with the topTracksLong updated
+    case "SET_TOP_TRACKS_LONG":
     return {
       ...state, 
-      topSongsLong: action.topSongsLong,
+      topTracksLong: action.topTracksLong,
     };
 
     // Return current state with the topArtistsShort updated

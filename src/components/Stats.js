@@ -19,7 +19,8 @@ function Stats() {
   /**
    * DataLayer
    */
-  const [{ topArtistsLong }, dispatch] = useDataLayerValue();
+  const [{ topTracksShort, topTracksMedium, topTracksLong,
+    topArtistsShort, topArtistsMedium, topArtistsLong }, dispatch] = useDataLayerValue();
 
   return (
     <div className='stats'>
@@ -29,7 +30,7 @@ function Stats() {
 
         {/* TITLE */}
         <div className='statsTitle'>
-          <h2 onClick={() => changeStatsTitle(dispatch, 'songs')}>Top Songs</h2>
+          <h2 onClick={() => changeStatsTitle(dispatch, 'tracks')}>Top Songs</h2>
           <h2 onClick={() => changeStatsTitle(dispatch, 'artists')}>Top Artists</h2>
         </div>
 
@@ -41,6 +42,7 @@ function Stats() {
         </div>
       </div>
 
+  {console.log(topTracksLong)}
 
       {/* STATS COMPONENT BODY */}
       <div className='statsBody'>
