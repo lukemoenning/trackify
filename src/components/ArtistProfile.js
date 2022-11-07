@@ -1,5 +1,7 @@
 /**
  * An artist profile to be created for each artist when they are displayed
+ * 
+ * Displays the artists profile image and name
  */
 
 import React from 'react';
@@ -8,8 +10,6 @@ import { Avatar } from '@mui/material';
 
 
 function ArtistProfile({ artist }) {
-
-  console.log(artist);
   return (
     <div className='artistProfile'>
       <Avatar className='pfp' src={artist?.images[0]?.url} alt={artist.name} sx={{height: 200, width: 200}}/>

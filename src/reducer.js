@@ -11,8 +11,11 @@ const spotify = new SpotifyWebApi();
 export const initialState = {
     spotify: spotify,
     token: null,
-    currentBodyDisplay: 'home',
     user: null,
+
+    currentBodyDisplay: 'home',
+    currentStatsTitle: 'songs',
+    currentStatsRange: 'short',
     playlists: null,
     displayedPlaylist: null,
     topArtistsLong: null,
@@ -63,6 +66,20 @@ const reducer = (state, action) => {
       return {
         ...state, 
         topArtistsLong: action.topArtistsLong,
+      };
+
+    // Return current state with the currentStatsTitle updated
+    case "SET_CURRENT_STATS_TITLE":
+      return {
+        ...state, 
+        currentStatsTitle: action.currentStatsTitle,
+      };
+
+    // Return current state with the currentStatsRange updated
+    case "SET_CURRENT_STATS_RANGE":
+      return {
+        ...state, 
+        currentStatsRange: action.currentStatsRange,
       };
 
     // Return unmodified state

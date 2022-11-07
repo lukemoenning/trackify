@@ -4,6 +4,23 @@
 
 
 
+export const fetchUserStats = (spotify, dispatch, setDisplayStats) => {
+
+  // Change current display to Your Stats
+  dispatch({
+    type: "SET_CURRENT_BODY_DISPLAY",
+    currentBodyDisplay: setDisplayStats,
+  });
+
+  // Reset displayedPlaylist
+  dispatch({
+    type: "SET_DISPLAYED_PLAYLIST",
+    displayedPlaylist: null,
+  });
+
+  // if (topSongsShort==null) {fetchTopSongsShort(spotify, dispatch);}
+}
+
 /**
  * Fetch information about user's top artists of all time
  * 
