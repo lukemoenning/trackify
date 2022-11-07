@@ -20,7 +20,7 @@ function Stats() {
    * DataLayer
    */
   const [{ topArtistsLong }, dispatch] = useDataLayerValue();
-
+g
   
   return (
     <div className='stats'>
