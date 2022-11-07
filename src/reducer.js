@@ -18,6 +18,14 @@ export const initialState = {
     currentStatsRange: 'short',
     playlists: null,
     displayedPlaylist: null,
+
+
+    // USER STATS
+    topSongsShort: null,
+    topSongsMedium: null,
+    topSongsLong: null,
+    topArtistsShort: null,
+    topArtistsMedium: null,
     topArtistsLong: null,
 };
 
@@ -61,13 +69,6 @@ const reducer = (state, action) => {
         displayedPlaylist: action.displayedPlaylist,
       };
 
-    // Return current state with the topArtistsLong updated
-    case "SET_TOP_ARTISTS_LONG":
-      return {
-        ...state, 
-        topArtistsLong: action.topArtistsLong,
-      };
-
     // Return current state with the currentStatsTitle updated
     case "SET_CURRENT_STATS_TITLE":
       return {
@@ -81,6 +82,54 @@ const reducer = (state, action) => {
         ...state, 
         currentStatsRange: action.currentStatsRange,
       };
+
+
+
+    /** USER STATS */
+
+    // Return current state with the topSongsShort updated
+    case "SET_TOP_SONGS_SHORT":
+    return {
+      ...state, 
+      topSongsShort: action.topSongsShort,
+    };
+
+    // Return current state with the topSongsMedium updated
+    case "SET_TOP_SONGS_MEDIUM":
+    return {
+      ...state, 
+      topSongsMedium: action.topSongsMedium,
+    };
+
+    // Return current state with the topSongsLong updated
+    case "SET_TOP_SONGS_LONG":
+    return {
+      ...state, 
+      topSongsLong: action.topSongsLong,
+    };
+
+    // Return current state with the topArtistsShort updated
+    case "SET_TOP_ARTISTS_SHORT":
+    return {
+      ...state, 
+      topArtistsShort: action.topArtistsShort,
+    };
+
+    // Return current state with the topArtistsMedium updated
+    case "SET_TOP_ARTISTS_MEDIUM":
+    return {
+      ...state, 
+      topArtistsMedium: action.topArtistsMedium,
+    };
+
+    // Return current state with the topArtistsLong updated
+    case "SET_TOP_ARTISTS_LONG":
+    return {
+      ...state, 
+      topArtistsLong: action.topArtistsLong,
+    };
+ 
+
 
     // Return unmodified state
     default: 

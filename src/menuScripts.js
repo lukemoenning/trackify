@@ -3,32 +3,28 @@
  */
 
 
+import { fetchTopSongsShort, fetchTopSongsMedium, fetchTopSongsLong, 
+  fetchTopArtistsShort, fetchTopArtistsMedium, fetchTopArtistsLong } from './fetchStats';
 
-export const fetchUserStats = (spotify, dispatch, setDisplayStats) => {
 
-  // Change current display to Your Stats
-  dispatch({
-    type: "SET_CURRENT_BODY_DISPLAY",
-    currentBodyDisplay: setDisplayStats,
-  });
 
-  // Reset displayedPlaylist
-  dispatch({
-    type: "SET_DISPLAYED_PLAYLIST",
-    displayedPlaylist: null,
-  });
-
-  // if (topSongsShort==null) {fetchTopSongsShort(spotify, dispatch);}
-}
-
-/**
- * Fetch information about user's top artists of all time
- * 
- * @param {*} spotify 
- * @param {*} dispatch 
- * @param {String} setDisplayStats - tell Body component to display Stats component
- */
-export const fetchTopArtistsLong = (spotify, dispatch, setDisplayStats) => {
+  /**
+   * Update the current Body component to display Stats component then fetch the user's statistics
+   * 
+   * @param {*} spotify 
+   * @param {*} dispatch 
+   * @param {String} setDisplayStats - 'stats'
+   * @param {*} topSongsShort - current topSongsShort
+   * @param {*} topSongsMedium - current topSongsMedium
+   * @param {*} topSongsLong - current topSongsLong
+   * @param {*} topArtistsShort - current topArtistsShort
+   * @param {*} topArtistsMedium - current topArtistsMedium
+   * @param {*} topArtistsLong - current topArtistsLong
+   */
+export const fetchUserStats = (spotify, dispatch, setDisplayStats, 
+  topSongsShort, topSongsMedium, topSongsLong,
+  topArtistsShort, topArtistsMedium, topArtistsLong
+) => {
 
   // Change current display to Your Stats
   dispatch({
@@ -42,20 +38,16 @@ export const fetchTopArtistsLong = (spotify, dispatch, setDisplayStats) => {
     displayedPlaylist: null,
   });
 
+  // Fetch each Top Songs Range if it does not already exist
+  if (topSongsShort==null) {fetchTopSongsShort(spotify, dispatch);}
+  if (topSongsMedium==null) {fetchTopSongsMedium(spotify, dispatch);}
+  if (topSongsLong==null) {fetchTopSongsLong(spotify, dispatch);}
 
-  // Options for the api request
-  const optionsLong = {
-    'limit': 50,
-    'offset': 0,
-    'time_range': 'long_term',
-  }
+  // Fetch each Top Artists Range if it does not already exist
+  if (topArtistsShort==null) {fetchTopArtistsShort(spotify, dispatch);}
+  if (topArtistsMedium==null) {fetchTopArtistsMedium(spotify, dispatch);}
+  if (topArtistsLong==null) {fetchTopArtistsLong(spotify, dispatch);}
 
-  // Fetch the information on top artists of all time then push it to the data layer
-  spotify.getMyTopArtists(optionsLong).then(topArtistsLong => 
-    dispatch({
-      type: "SET_TOP_ARTISTS_LONG",
-      topArtistsLong: topArtistsLong,
-    }))
 }
 
 
