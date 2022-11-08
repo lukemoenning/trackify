@@ -31,7 +31,6 @@ export const initialState = {
 
 const reducer = (state, action) => {
 
-
   switch(action.type) {
 
     // Return current state with the token updated
