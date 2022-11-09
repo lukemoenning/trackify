@@ -1,0 +1,11 @@
+/* PARENT DIV */
+
+.statsBody {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-x: none;
+  width: 100%;
+}
+
+/* ***** ***** ***** ***** ***** */
