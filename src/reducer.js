@@ -1,4 +1,5 @@
 import SpotifyWebApi from 'spotify-web-api-js';
+import { INITIALSTATSTITLE, INITIALSTATSRANGE } from './assets/constants/constants';
 
 /**
  * Spotify Web API object
@@ -25,8 +26,8 @@ export const initialState = {
     topArtistsMedium: null,
     topArtistsLong: null,
 
-    currentStatsTitle: 'tracks',
-    currentStatsRange: 'short',
+    currentStatsTitle: INITIALSTATSTITLE,
+    currentStatsRange: INITIALSTATSRANGE,
 };
 
 const reducer = (state, action) => {

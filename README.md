@@ -1,5 +1,11 @@
 # Trackify
 
+## Run on localhost:3000
+**$ docker-compose up -d** <br />
+$ docker-compose up -d --build <br />
+$ docker-compose down <br />
+
+
 ## TODO
 ° Finish Spotify clone skeleton <br />
 ° React Router <br />
@@ -15,10 +21,6 @@ $ docker pull lukemoenning/trackify <br />
 $ docker build -t lukemoenning/trackify . <br />
 $ docker exec -it trackify bash <br />
 
-## Run with docker-compose
-**$ docker-compose up -d** <br />
-$ docker-compose up -d --build <br />
-$ docker-compose down <br />
  
 ## Run with npm <br />
 $ npm start <br />

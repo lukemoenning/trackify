@@ -1,7 +1,6 @@
 /**
- * The Your Stats component after the user chooses to display it
- * 
- * Contains options for the stats the user wishes to view. 
+ * Loads the StatsHeader and StatsBody components which contain
+ * options for the stats the user wishes to view. 
  * 
  * Possibilities are: 
  *    Top Artists for 4 weeks, 6 months, and all time.
@@ -16,6 +15,9 @@ import StatsBody from './StatsBody';
 
 function Stats() {
 
+  useEffect(() => {
+    
+  }, []);
 
   return (
     <div className='stats'>
