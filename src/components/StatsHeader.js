@@ -54,7 +54,7 @@ function StatsHeader() {
  * @param {String} newTitle 
  */
  function changeStatsTitle(dispatch, currentStatsTitle, newTitle){
-  updateHighlight(currentStatsTitle, newTitle);
+  // updateHighlight(currentStatsTitle, newTitle);
 
   dispatch({
     type: "SET_CURRENT_STATS_TITLE",
@@ -69,7 +69,7 @@ function StatsHeader() {
  * @param {String} newRange 
  */
 function changeStatsRange(dispatch, currentStatsRange, newRange){
-  updateHighlight(currentStatsRange, newRange);
+  // updateHighlight(currentStatsRange, newRange);
 
   dispatch({
     type: "SET_CURRENT_STATS_RANGE",

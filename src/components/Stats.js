@@ -7,7 +7,7 @@
  *    Top Tracks for 4 weeks, 6 months, and all time. 
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import './styles/Stats.css';
 import StatsHeader from './StatsHeader';
 import StatsBody from './StatsBody';
@@ -23,7 +23,7 @@ function Stats() {
     <div className='stats'>
    
       <StatsHeader />
-      <StatsBody />
+      <StatsBody currentStat='tracksshort' />
 
     </div>
   );

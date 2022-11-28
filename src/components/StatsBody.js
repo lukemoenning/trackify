@@ -9,25 +9,21 @@ import { useDataLayerValue } from '../DataLayer';
 import ArtistProfile from './ArtistProfile';
 import Song from './Song';
 
-function StatsBody() {
+function StatsBody( props ) {
 
   /**
    * DataLayer
    */
    const [{ topTracksShort, topTracksMedium, topTracksLong,
-    topArtistsShort, topArtistsMedium, topArtistsLong, 
-    currentStatsRange, currentStatsTitle }, dispatch] = useDataLayerValue();
+    topArtistsShort, topArtistsMedium, topArtistsLong}, dispatch] = useDataLayerValue();
 
-  const dis = currentStatsTitle+currentStatsRange;
 
   return (
     <div className='statsBody'>
 
         {/* Different stats the user can view */}
-        {((topTracksShort, topTracksMedium, topTracksLong,
-            topArtistsShort, topArtistsMedium, topArtistsLong 
-          ) => {
-          switch (dis) {
+        {(() => {
+          switch (props.currentStat) {
 
             /* TRACKS LAST 4 WEEKS */
             case 'tracksshort':
@@ -78,6 +74,7 @@ function StatsBody() {
               );
 
             default:
+              console.log('Invalid Stat to display.')
               return null;
           }
         })()}
