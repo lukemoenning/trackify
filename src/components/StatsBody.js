@@ -29,7 +29,7 @@ function StatsBody( props ) {
             case 'tracksshort':
               return (
                 topTracksShort?.items?.map(track => (
-                  <Song key={track.name} track={track}/>
+                  <Song key={track.id} track={track}/>
                 ))
               );
 
@@ -37,7 +37,7 @@ function StatsBody( props ) {
             case 'tracksmedium':
               return (
                 topTracksMedium?.items?.map(track => (
-                  <Song key={track.name} track={track}/>
+                  <Song key={track.id} track={track}/>
                 ))
               );
 
@@ -45,7 +45,7 @@ function StatsBody( props ) {
             case 'trackslong':
               return (
                 topTracksLong?.items?.map(track => (
-                  <Song key={track.name} track={track}/>
+                  <Song key={track.id} track={track}/>
                 ))
               );
                 
@@ -53,7 +53,7 @@ function StatsBody( props ) {
             case 'artistsshort':
               return (
                 topArtistsShort?.items?.map(artist => (
-                  <ArtistProfile key={artist.name} artist={artist}/>
+                  <ArtistProfile key={artist.id} artist={artist}/>
                 ))
               );
 
@@ -61,7 +61,7 @@ function StatsBody( props ) {
             case 'artistsmedium':
               return (
                 topArtistsMedium?.items?.map(artist => (
-                  <ArtistProfile key={artist.name} artist={artist}/>
+                  <ArtistProfile key={artist.id} artist={artist}/>
                 ))
               );
 
@@ -69,7 +69,7 @@ function StatsBody( props ) {
             case 'artistslong':
               return (
                 topArtistsLong?.items?.map(artist => (
-                  <ArtistProfile key={artist.name} artist={artist}/>
+                  <ArtistProfile key={artist.id} artist={artist}/>
                 ))
               );
 

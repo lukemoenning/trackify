@@ -18,7 +18,7 @@ function StatsHeader() {
   const [{ currentStatsRange, currentStatsTitle }, dispatch] = useDataLayerValue();
 
   useEffect(() => {
-    
+  
   }, []);
 
   return (
