@@ -7,7 +7,9 @@
 
 import React, { useEffect, useState } from 'react';
 import './styles/StatsHeader.css';
+import '../assets/constants/Colors.css';
 import { useDataLayerValue } from '../DataLayer';
+
 
 
 function StatsHeader() {
@@ -26,15 +28,30 @@ function StatsHeader() {
 
       {/* TITLE */}
       <div className='statsTitle'>
-        <h2 className='tracks' onClick={() => changeStatsTitle(dispatch, currentStatsTitle, 'tracks')}>Top Songs</h2>
-        <h2 className='artists' onClick={() => changeStatsTitle(dispatch, currentStatsTitle, 'artists')}>Top Artists</h2>
+        <h2 
+          className={currentStatsTitle==='tracks' ? 'tracks selectedStat' : 'tracks'}
+          onClick={() => changeStatsTitle(dispatch, currentStatsTitle, 'tracks')}
+        >Top Songs</h2>
+        <h2 
+          className={currentStatsTitle==='artists' ? 'artists selectedStat' : 'artists'} 
+          onClick={() => changeStatsTitle(dispatch, currentStatsTitle, 'artists')}
+        >Top Artists</h2>
       </div>
 
       {/* RANGE */}
       <div className='statsRange'>
-        <h3 className='short' onClick={() => changeStatsRange(dispatch, currentStatsRange, 'short')}>Last 4 Weeks</h3>
-        <h3 className='medium' onClick={() => changeStatsRange(dispatch, currentStatsRange, 'medium')}>Last 6 Months</h3>
-        <h3 className='long' onClick={() => changeStatsRange(dispatch, currentStatsRange, 'long')}>All Time</h3>
+        <h3 
+          className={currentStatsRange==='short' ? 'short selectedStat' : 'short'}
+          onClick={() => changeStatsRange(dispatch, currentStatsRange, 'short')}
+        >Last 4 Weeks</h3>
+        <h3 
+          className={currentStatsRange==='medium' ? 'medium selectedStat' : 'medium'} 
+          onClick={() => changeStatsRange(dispatch, currentStatsRange, 'medium')}
+        >Last 6 Months</h3>
+        <h3 
+          className={currentStatsRange==='long' ? 'long selectedStat' : 'long'} 
+          onClick={() => changeStatsRange(dispatch, currentStatsRange, 'long')}
+        >All Time</h3>
       </div>
 
     </div>

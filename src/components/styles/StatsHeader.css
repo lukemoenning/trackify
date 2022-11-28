@@ -16,6 +16,7 @@
 
 .statsHeader h2:hover, .statsHeader h3:hover {
   color: var(--light-green);
+  transition: 200ms color ease-in;
 }
 
 /* ***** ***** ***** ***** ***** */
@@ -45,6 +46,16 @@
   align-items: center;
   width: 400px;
   height: auto;
+}
+
+/* ***** ***** ***** ***** ***** */
+
+
+
+/* Selected Stat*/
+
+.selectedStat {
+  color: var(--light-green);
 }
 
 /* ***** ***** ***** ***** ***** */
