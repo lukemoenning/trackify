@@ -9,11 +9,17 @@
 
 import React, { useEffect } from 'react';
 import './styles/Stats.css';
+import { useDataLayerValue } from '../DataLayer';
 import StatsHeader from './StatsHeader';
 import StatsBody from './StatsBody';
 
 
 function Stats() {
+
+  /**
+   * DataLayer
+   */
+   const [{ currentStatsRange, currentStatsTitle }, dispatch] = useDataLayerValue();
 
   useEffect(() => {
     
@@ -23,7 +29,7 @@ function Stats() {
     <div className='stats'>
    
       <StatsHeader />
-      <StatsBody currentStat='tracksshort' />
+      <StatsBody currentStat={currentStatsTitle.concat(currentStatsRange)} />
 
     </div>
   );

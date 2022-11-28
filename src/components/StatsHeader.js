@@ -8,7 +8,6 @@
 import React, { useEffect, useState } from 'react';
 import './styles/StatsHeader.css';
 import { useDataLayerValue } from '../DataLayer';
-import { INITIALSTATSTITLE, INITIALSTATSRANGE } from '../assets/constants/constants';
 
 
 function StatsHeader() {
@@ -16,14 +15,10 @@ function StatsHeader() {
   /**
    * DataLayer
    */
-  const [{ topTracksShort, topTracksMedium, topTracksLong,
-    topArtistsShort, topArtistsMedium, topArtistsLong, 
-    currentStatsRange, currentStatsTitle }, dispatch] = useDataLayerValue();
+  const [{ currentStatsRange, currentStatsTitle }, dispatch] = useDataLayerValue();
 
-
-  const [activeStatsTitle, setActiveStatsTitle] = useState(INITIALSTATSTITLE);
   useEffect(() => {
-    changeStatsTitle(dispatch, );
+    
   }, []);
 
   return (
