@@ -23,7 +23,7 @@ function Song({ track }) {
         </div>
       </div>
 
-      <p className='album'>{track?.album?.name}</p>
+      <p className='songAlbum'>{track?.album?.name}</p>
 
       <p className='duration'>{msToMinutes(track?.duration_ms)}</p>
     </div>

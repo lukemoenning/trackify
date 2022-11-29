@@ -5,6 +5,9 @@
 import React from 'react';
 import './styles/Home.css';
 import { useDataLayerValue } from '../DataLayer';
+import Album from './Album';
+import Song from './Song';
+
 
 function Home() {
 
@@ -13,13 +16,17 @@ function Home() {
    */
    const [{ spotify, user, featuredPlaylists, newReleases, recentlyPlayedTracks }, dispatch] = useDataLayerValue();
 
+  /**
+   * Set to keep track of which recently played tracks have been displayed to prevent duplicates
+   */
+  let recentlyPlayedTracksDisplayed = new Set();
 
   return (
     <div className='home'>
     
       {/* GREETING */}
       <div className='greetingWrap'>
-        {getGreeting(user)}
+        <h1>{getGreeting()} {user?.display_name}</h1>
       </div>
 
       {/* FEATURED PLAYLISTS */}
@@ -27,7 +34,9 @@ function Home() {
         <h2>{featuredPlaylists?.message}</h2>
 
         <div className='featuredPlaylists'>
-
+          {featuredPlaylists?.playlists.items?.map(album => (
+            <Album album={album} key={album.id} />
+          ))}
         </div>
 
       </div>
@@ -35,9 +44,11 @@ function Home() {
       {/* NEW RELEASES */}
       <div className='newReleasesWrap'>
         <h2>New releases</h2>
-
+            
         <div className='newReleases'>
-
+          {newReleases?.albums?.items?.map(album => (
+            <Album album={album} key={album.id} />
+          ))}
         </div>
 
       </div>
@@ -48,6 +59,13 @@ function Home() {
 
         <div className='recentlyPlayedTracks'>
 
+          {/* Only add the track if it has not already been display */}
+          {recentlyPlayedTracks?.items?.map(item => {
+            if (!recentlyPlayedTracksDisplayed.has(item.track.id)) {
+              recentlyPlayedTracksDisplayed.add(item.track.id);
+              return (<Song key={item.track.id} track={item.track}/>);
+            }
+          })}
         </div>
 
       </div>
@@ -59,10 +77,9 @@ function Home() {
 /**
  * Get the greeting for the home page, will differ depening on the time of day.
  * 
- * @param {*} user - current user
- * @returns h1 element containing the greeting
+ * @returns String with the greeting that corresponds to the time of day
  */
-function getGreeting(user) {
+function getGreeting() {
   
   const todaysDate = new Date();
   const currentHour = todaysDate.getHours();
@@ -70,16 +87,16 @@ function getGreeting(user) {
   switch (true) {
 
     case currentHour<12:
-      return <h1>Good Morning {user?.name}</h1>;
+      return "Good morning";
 
     case currentHour<18:
-      return <h1>Good Afternoon {user?.name}</h1>;
+      return "Good afternoon";
 
     case currentHour<24:
-      return <h1>Good Evening {user?.name}</h1>;
+      return "Good evening";
 
     default:
-      return <h1>Hello {user?.name}</h1>;
+      return "Hello";
   }
 }
 

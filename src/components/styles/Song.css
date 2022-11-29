@@ -23,7 +23,7 @@
 
 /* ALL THREE SECTIONS OF SONG INFORMATION  */
 
-.leftInfo, .album, .duration {
+.leftInfo, .songAlbum, .duration {
   display: flex;
   align-items: center;
   width: 30%;
@@ -87,7 +87,7 @@
 
 /* HANDLE OVERFLOW FOR TEXT FIELDS */
 
-.name, .album{
+.name, .songAlbum{
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
