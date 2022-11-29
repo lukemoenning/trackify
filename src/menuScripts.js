@@ -4,7 +4,8 @@
 
 
 import { fetchTopTracksShort, fetchTopTracksMedium, fetchTopTracksLong, 
-  fetchTopArtistsShort, fetchTopArtistsMedium, fetchTopArtistsLong } from './fetchStats';
+  fetchTopArtistsShort, fetchTopArtistsMedium, fetchTopArtistsLong,
+  fetchFeaturedPlaylists, fetchNewReleases, fetchRecentlyPlayedTracks } from './fetchRequests';
 
 
 
@@ -27,16 +28,7 @@ export const fetchUserStats = (spotify, dispatch, setDisplayStats,
 ) => {
 
   // Change current display to Your Stats
-  dispatch({
-    type: "SET_CURRENT_BODY_DISPLAY",
-    currentBodyDisplay: setDisplayStats,
-  });
-
-  // Reset displayedPlaylist
-  dispatch({
-    type: "SET_DISPLAYED_PLAYLIST",
-    displayedPlaylist: null,
-  });
+  changeCurrentBodyDisplay(dispatch, setDisplayStats);
 
   // Fetch each Top Songs Range if it does not already exist
   if (topSongsShort==null) {fetchTopTracksShort(spotify, dispatch);}
@@ -59,7 +51,7 @@ export const fetchUserStats = (spotify, dispatch, setDisplayStats,
  * @param {*} dispatch 
  * @param {String} newCurrentBodyDisplay - New page to display
  */
-export const handleIconClick = (dispatch, newCurrentBodyDisplay) => {
+export const changeCurrentBodyDisplay = (dispatch, newCurrentBodyDisplay) => {
 
   // Change the current display to newCurrentBodyDisplay
   dispatch({
@@ -100,4 +92,25 @@ export const displayPlaylist = (spotify, dispatch, playlistID, newCurrentBodyDis
     currentBodyDisplay: newCurrentBodyDisplay,
   });
 
+}
+
+/**
+ * Update the current Body component to display Home component then fetch the home content
+ * 
+ * @param {*} spotify 
+ * @param {*} dispatch 
+ * @param {String} setDisplayHome - 'home'
+ * @param {*} featuredPlaylists 
+ * @param {*} newReleases 
+ * @param {*} recentlyPlayedTracks 
+ */
+export const fetchHomeContent = (spotify, dispatch, setDisplayHome, featuredPlaylists, newReleases, recentlyPlayedTracks) => {
+  
+  // Change current display to Home
+  changeCurrentBodyDisplay(dispatch, setDisplayHome);
+
+  // Fetch home content if it does not already exist
+  if (featuredPlaylists==null) {fetchFeaturedPlaylists(spotify, dispatch);}
+  if (newReleases==null) {fetchNewReleases(spotify, dispatch);}
+  if (recentlyPlayedTracks==null) {fetchRecentlyPlayedTracks(spotify, dispatch);}
 }

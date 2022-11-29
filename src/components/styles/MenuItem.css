@@ -4,13 +4,12 @@
 .menuItem {
   display: flex;
   align-items: center;
-  color: var(--light-grey);
+  /* color: var(--light-grey); */
   height: 40px;
-  transition: 200ms color ease-in;
 }
 
 .menuItem:hover {
-  color: var(--white);
+  color: var(--light-green);
 }
 
 /* ***** ***** ***** ***** ***** */

@@ -1,5 +1,5 @@
 import SpotifyWebApi from 'spotify-web-api-js';
-import { INITIALSTATSTITLE, INITIALSTATSRANGE } from './assets/constants/constants';
+import { INITIALSTATSTITLE, INITIALSTATSRANGE, INITIALBODYDISPLAY } from './assets/constants/constants';
 
 /**
  * Spotify Web API object
@@ -13,7 +13,7 @@ export const initialState = {
     spotify: spotify,
     token: null,
     user: null,
-    currentBodyDisplay: 'home',
+    currentBodyDisplay: INITIALBODYDISPLAY,
     playlists: null,
     displayedPlaylist: null,
 
@@ -28,6 +28,12 @@ export const initialState = {
 
     currentStatsTitle: INITIALSTATSTITLE,
     currentStatsRange: INITIALSTATSRANGE,
+
+    // HOME CONTENT
+    featuredPlaylists: null,
+    newReleases: null,
+    recentlyPlayedTracks: null,
+
 };
 
 const reducer = (state, action) => {
@@ -127,6 +133,30 @@ const reducer = (state, action) => {
     return {
       ...state, 
       topArtistsLong: action.topArtistsLong,
+    };
+
+
+    /** HOME CONTENT */
+
+    // Return current state with the featuredPlaylists updated
+    case "SET_FEATURED_PLAYLISTS":
+    return {
+      ...state, 
+      featuredPlaylists: action.featuredPlaylists,
+    };
+
+    // Return current state with the newReleases updated
+    case "SET_NEW_RELEASES":
+    return {
+      ...state, 
+      newReleases: action.newReleases,
+    };
+
+    // Return current state with the recentlyPlayedTracks updated
+    case "SET_RECENTLY_PLAYED_TRACKS":
+    return {
+      ...state, 
+      recentlyPlayedTracks: action.recentlyPlayedTracks,
     };
  
 

@@ -49,3 +49,11 @@
 
 
 
+/* Selected MenuItem*/
+
+.selectedMenuItem {
+  color: var(--light-green);
+}
+
+/* ***** ***** ***** ***** ***** */
+

@@ -5,7 +5,7 @@
  */
 
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './styles/StatsHeader.css';
 import '../assets/constants/Colors.css';
 import { useDataLayerValue } from '../DataLayer';

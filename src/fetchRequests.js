@@ -108,7 +108,7 @@ const optionsLong = {
  * Fetch information about user's top artists of all time
  * 
  * @param {*} spotify 
- * @param {*} dispatch Long
+ * @param {*} dispatch 
  */
  export const fetchTopArtistsLong = (spotify, dispatch) => {
   spotify.getMyTopArtists(optionsLong).then(topArtistsLong => 
@@ -117,3 +117,49 @@ const optionsLong = {
       topArtistsLong: topArtistsLong,
     }))
 }
+
+
+/**
+ * Fetch featured playlists
+ * 
+ * @param {*} spotify 
+ * @param {*} dispatch 
+ */
+ export const fetchFeaturedPlaylists = (spotify, dispatch) => {
+  spotify.getFeaturedPlaylists().then(featuredPlaylists => 
+    dispatch({
+      type: "SET_FEATURED_PLAYLISTS",
+      featuredPlaylists: featuredPlaylists,
+    }))
+}
+
+/**
+ * Fetch new releases
+ * 
+ * @param {*} spotify 
+ * @param {*} dispatch 
+ */
+ export const fetchNewReleases = (spotify, dispatch) => {
+  spotify.getNewReleases().then(newReleases => 
+    dispatch({
+      type: "SET_NEW_RELEASES",
+      newReleases: newReleases,
+    }))
+}
+
+/**
+ * Fetch recently played tracks
+ * 
+ * @param {*} spotify 
+ * @param {*} dispatch 
+ */
+ export const fetchRecentlyPlayedTracks = (spotify, dispatch) => {
+  spotify.getMyRecentlyPlayedTracks().then(recentlyPlayedTracks => 
+    dispatch({
+      type: "SET_RECENTLY_PLAYED_TRACKS",
+      recentlyPlayedTracks: recentlyPlayedTracks,
+    }))
+}
+
+
+
