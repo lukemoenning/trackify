@@ -4,13 +4,14 @@
 
 import React from 'react';
 import './styles/Library.css';
+import LibraryHeader from './LibraryHeader';
+import LibraryBody from './LibraryBody';
 
 function Library() {
   return (
     <div className='library'>
-      <h1>The Library page has not yet been created.</h1>
-      <br /> <br /> 
-      <h1>Check back in later!</h1>
+      <LibraryHeader />
+      <LibraryBody />
     </div>
   );
 }

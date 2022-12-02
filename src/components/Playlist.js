@@ -31,7 +31,9 @@ function Playlist() {
         </div>
       </div>
 
-      <PlayCircle className='playCircle' style={{ fontSize: 75}}/>
+      <a href={"https://open.spotify.com/playlist/"+displayedPlaylist?.id} target='_blank'>
+        <PlayCircle className='playCircle' style={{ fontSize: 75}}/>
+      </a>
  
       <div className='songs'>
         {displayedPlaylist?.tracks?.items?.map(item => (

@@ -11,11 +11,11 @@ import { Avatar } from '@mui/material';
 
 function ArtistProfile({ artist }) {
   return (
-    <div className='artistProfile'>
+    <a className='artistProfile' href={"https://open.spotify.com/artist/"+artist.id} target='_blank'>
       <Avatar className='pfp' src={artist?.images[0]?.url} alt={artist.name} sx={{height: 200, width: 200}}/>
       <h2>{artist?.name}</h2>
       <p>Artist</p>
-    </div>
+    </a>
   );
 }
 

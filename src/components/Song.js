@@ -7,9 +7,12 @@ import { MusicNote } from '@mui/icons-material';
 
 
 function Song({ track }) {
-  return (
-    <div className='song'>
+  
+  const trackURL = "https://open.spotify.com/album/"+track?.album?.id+'?highlight=spotify:track:'+track.id;
 
+  return (
+    <a className='song' href={trackURL} target='_blank'>
+    
       <div className='leftInfo'>
 
         {/* If the album image exists display it, otherwise display the blank album image */}
@@ -26,7 +29,7 @@ function Song({ track }) {
       <p className='songAlbum'>{track?.album?.name}</p>
 
       <p className='duration'>{msToMinutes(track?.duration_ms)}</p>
-    </div>
+    </a>
   );
 }
 

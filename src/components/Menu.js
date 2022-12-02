@@ -23,6 +23,8 @@ function Menu() {
     featuredPlaylists, newReleases, recentlyPlayedTracks,
     currentBodyDisplay, displayedPlaylist }, dispatch] = useDataLayerValue();
 
+    console.log(topArtistsLong)
+
     useEffect(() => {
       
       // Set the original display to Home
@@ -43,11 +45,12 @@ function Menu() {
         <MenuItem text='Home' Icon={Home}/>
       </div>
 
-      <div 
+      {/* LIBRARY SECTION */}
+      {/* <div 
           onClick={() => changeCurrentBodyDisplay(dispatch, 'library')}
           className={currentBodyDisplay==='library' ? 'selectedMenuItem' : ''}>
         <MenuItem text='Your Library' Icon={LibraryMusic}/>
-      </div>
+      </div> */}
 
       <div 
           onClick={() => fetchUserStats(spotify, dispatch, 'stats', 
