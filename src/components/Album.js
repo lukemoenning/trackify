@@ -18,7 +18,7 @@ function Album({ album }) {
 
   return (
     <a className='album' href={link} target='_blank'>
-      <Avatar className= 'albumPhoto' src={album?.images[0]?.url} alt={album?.name} sx={{height: 150, width: 150}} variant='square'/>
+      <Avatar className= 'albumPhoto' src={album?.images[0]?.url} alt={album?.name} sx={{height: 150, width: 150, borderRadius: 2}} variant='square'/>
       <h2>{album?.name}</h2>
 
       {/* IF A PLAYLIST DISPLAY DESCRIPTION OTHERWISE DISPLAY ARTISTS */}
