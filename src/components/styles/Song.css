@@ -14,7 +14,7 @@
 
 .song:hover {
   background-color: var(--dark-grey);
-  opacity: 1;
+  transition: 100ms background-color ease-in;
 }
 
 /* ***** ***** ***** ***** ***** */
@@ -36,7 +36,7 @@
 
 
 
-/* ALBUM COVER, SONG NAME, AND ARTISTS */
+/* RANKING, ALBUM COVER, SONG NAME, AND ARTISTS */
 
 .leftInfo {
   width: 40%;
@@ -44,6 +44,10 @@
 
 .leftInfo img {
   margin-left: 10px;
+}
+
+.songRank {
+  color: var(--dark-green);
 }
 
 .blankAlbumImage {

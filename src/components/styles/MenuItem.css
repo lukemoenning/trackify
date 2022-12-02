@@ -10,6 +10,7 @@
 
 .menuItem:hover {
   color: var(--light-green);
+  cursor: pointer; 
 }
 
 /* ***** ***** ***** ***** ***** */

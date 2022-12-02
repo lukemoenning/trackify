@@ -17,6 +17,7 @@
 
 .artistProfile:hover {
   background-color: var(--light-grey);
+  transition: 200ms background-color ease-in;
 }
 
 /* ***** ***** ***** ***** ***** */
@@ -43,10 +44,22 @@
 
 
 
-/* ARTIST LABEL */
+/* ARTIST LABEL AND RANK */
 
-.artistProfile p {
+.labelAndRank {
+  display: flex;
+  justify-content: space-between;
+}
+
+.artistLabel {
   padding-left: 10px;
+  align-self: center;
+}
+
+.artistRank {
+  color: var(--dark-green);
+  padding-right: 10px;
+  font-size: x-large;
 }
 
 /* ***** ***** ***** ***** ***** */

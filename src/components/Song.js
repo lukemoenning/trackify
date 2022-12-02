@@ -6,7 +6,7 @@ import './styles/Song.css';
 import { MusicNote } from '@mui/icons-material';
 
 
-function Song({ track }) {
+function Song({ track, rank }) {
   
   const trackURL = "https://open.spotify.com/album/"+track?.album?.id+'?highlight=spotify:track:'+track.id;
 
@@ -15,6 +15,9 @@ function Song({ track }) {
     
       <div className='leftInfo'>
 
+        {/* Ff the song is a statistic with a ranking, display the ranking */}
+        {rank ? <p className='songRank'>{rank}</p> : null}
+        
         {/* If the album image exists display it, otherwise display the blank album image */}
         {track?.album?.images[0] 
           ? (<img src={track?.album?.images[0]?.url} alt={track.name} height={40} width={40}></img>)
