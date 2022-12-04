@@ -1,6 +1,7 @@
 # Trackify
 
 ## Link => https://lukemoenning.github.io/trackify/
+**Need to get approved by Spotify before the link works universally**
 
 ## Deploy to GitHub Pages
 $ npm run deploy -- -m "Deploy Trackify  to GitHub Pages"
