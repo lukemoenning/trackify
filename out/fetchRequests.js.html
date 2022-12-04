@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: fetchRequests.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: fetchRequests.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Fetch requests for user statistics
+ */
+
+
+
+/** 
+ * Options for the api request - short range
+ * */ 
+const optionsShort = {
+  'limit': 50,
+  'offset': 0,
+  'time_range': 'short_term',
+}
+
+/** 
+ * Options for the api request - medium range
+ * */
+const optionsMedium = {
+  'limit': 50,
+  'offset': 0,
+  'time_range': 'medium_term',
+}
+
+/**
+ * Options for the api request - long range
+ * */
+const optionsLong = {
+  'limit': 50,
+  'offset': 0,
+  'time_range': 'long_term',
+}
+
+
+
+
+
+/**
+ * Fetch information about user's top songs the last 4 weeks
+ * 
+ * @param {*} spotify 
+ * @param {*} dispatch 
+ */
+export const fetchTopTracksShort = (spotify, dispatch) => {
+  spotify.getMyTopTracks(optionsShort).then(topTracksShort => 
+    dispatch({
+      type: "SET_TOP_TRACKS_SHORT",
+      topTracksShort: topTracksShort,
+    }))
+}
+
+
+/**
+ * Fetch information about user's top songs the last 6 months
+ * 
+ * @param {*} spotify 
+ * @param {*} dispatch 
+ */
+export const fetchTopTracksMedium = (spotify, dispatch) => {
+  spotify.getMyTopTracks(optionsMedium).then(topTracksMedium => 
+    dispatch({
+      type: "SET_TOP_TRACKS_MEDIUM",
+      topTracksMedium: topTracksMedium,
+    }))
+}
+
+
+/**
+ * Fetch information about user's top songs of all time
+ * 
+ * @param {*} spotify 
+ * @param {*} dispatch 
+ */
+export const fetchTopTracksLong = (spotify, dispatch) => {
+  spotify.getMyTopTracks(optionsLong).then(topTracksLong => 
+    dispatch({
+      type: "SET_TOP_TRACKS_LONG",
+      topTracksLong: topTracksLong,
+    }))
+}
+
+
+
+/**
+ * Fetch information about user's top artists the last 4 weeks
+ * 
+ * @param {*} spotify 
+ * @param {*} dispatch 
+ */
+export const fetchTopArtistsShort = (spotify, dispatch) => {
+  spotify.getMyTopArtists(optionsShort).then(topArtistsShort => 
+    dispatch({
+      type: "SET_TOP_ARTISTS_SHORT",
+      topArtistsShort: topArtistsShort,
+    }))
+}
+
+/**
+ * Fetch information about user's top artists the last 6 months
+ * 
+ * @param {*} spotify 
+ * @param {*} dispatch 
+ */
+export const fetchTopArtistsMedium = (spotify, dispatch) => {
+  spotify.getMyTopArtists(optionsMedium).then(topArtistsMedium => 
+    dispatch({
+      type: "SET_TOP_ARTISTS_MEDIUM",
+      topArtistsMedium: topArtistsMedium,
+    }))
+}
+
+
+/**
+ * Fetch information about user's top artists of all time
+ * 
+ * @param {*} spotify 
+ * @param {*} dispatch 
+ */
+export const fetchTopArtistsLong = (spotify, dispatch) => {
+  spotify.getMyTopArtists(optionsLong).then(topArtistsLong => 
+    dispatch({
+      type: "SET_TOP_ARTISTS_LONG",
+      topArtistsLong: topArtistsLong,
+    }))
+}
+
+
+/**
+ * Fetch featured playlists
+ * 
+ * @param {*} spotify 
+ * @param {*} dispatch 
+ */
+export const fetchFeaturedPlaylists = (spotify, dispatch) => {
+  spotify.getFeaturedPlaylists().then(featuredPlaylists => 
+    dispatch({
+      type: "SET_FEATURED_PLAYLISTS",
+      featuredPlaylists: featuredPlaylists,
+    }))
+}
+
+/**
+ * Fetch new releases
+ * 
+ * @param {*} spotify 
+ * @param {*} dispatch 
+ */
+export const fetchNewReleases = (spotify, dispatch) => {
+  spotify.getNewReleases().then(newReleases => 
+    dispatch({
+      type: "SET_NEW_RELEASES",
+      newReleases: newReleases,
+    }))
+}
+
+/**
+ * Fetch recently played tracks
+ * 
+ * @param {*} spotify 
+ * @param {*} dispatch 
+ */
+export const fetchRecentlyPlayedTracks = (spotify, dispatch) => {
+  spotify.getMyRecentlyPlayedTracks().then(recentlyPlayedTracks => 
+    dispatch({
+      type: "SET_RECENTLY_PLAYED_TRACKS",
+      recentlyPlayedTracks: recentlyPlayedTracks,
+    }))
+}
+
+
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#authorizationEndpoint">authorizationEndpoint</a></li><li><a href="global.html#changeCurrentBodyDisplay">changeCurrentBodyDisplay</a></li><li><a href="global.html#changeStatsRange">changeStatsRange</a></li><li><a href="global.html#changeStatsTitle">changeStatsTitle</a></li><li><a href="global.html#clientID">clientID</a></li><li><a href="global.html#displayPlaylist">displayPlaylist</a></li><li><a href="global.html#fetchFeaturedPlaylists">fetchFeaturedPlaylists</a></li><li><a href="global.html#fetchHomeContent">fetchHomeContent</a></li><li><a href="global.html#fetchNewReleases">fetchNewReleases</a></li><li><a href="global.html#fetchRecentlyPlayedTracks">fetchRecentlyPlayedTracks</a></li><li><a href="global.html#fetchTopArtistsLong">fetchTopArtistsLong</a></li><li><a href="global.html#fetchTopArtistsMedium">fetchTopArtistsMedium</a></li><li><a href="global.html#fetchTopArtistsShort">fetchTopArtistsShort</a></li><li><a href="global.html#fetchTopTracksLong">fetchTopTracksLong</a></li><li><a href="global.html#fetchTopTracksMedium">fetchTopTracksMedium</a></li><li><a href="global.html#fetchTopTracksShort">fetchTopTracksShort</a></li><li><a href="global.html#fetchUserStats">fetchUserStats</a></li><li><a href="global.html#getAccessTokenFromURL">getAccessTokenFromURL</a></li><li><a href="global.html#getGreeting">getGreeting</a></li><li><a href="global.html#initialState">initialState</a></li><li><a href="global.html#INITIALSTATSTITLE">INITIALSTATSTITLE</a></li><li><a href="global.html#loginURL">loginURL</a></li><li><a href="global.html#msToMinutes">msToMinutes</a></li><li><a href="global.html#optionsLong">optionsLong</a></li><li><a href="global.html#optionsMedium">optionsMedium</a></li><li><a href="global.html#optionsShort">optionsShort</a></li><li><a href="global.html#redirectURI">redirectURI</a></li><li><a href="global.html#scopes">scopes</a></li><li><a href="global.html#spotify">spotify</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Sat Dec 03 2022 22:29:03 GMT-0600 (Central Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

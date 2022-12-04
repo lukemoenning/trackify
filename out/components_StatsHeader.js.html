@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: spotify.js</title>
+    <title>JSDoc: Source: components/StatsHeader.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: spotify.js</h1>
+    <h1 class="page-title">Source: components/StatsHeader.js</h1>
 
     
 
@@ -27,56 +27,91 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * The base URL for the Spotify authrozation URL.
+ * Header for the Stats componenet
+ * 
+ * Contains the navigation
  */
-const authorizationEndpoint = "https://accounts.spotify.com/authorize";
+
+import React, { useEffect } from 'react';
+import './styles/StatsHeader.css';
+import '../assets/constants/Colors.css';
+import { useDataLayerValue } from '../DataLayer';
+
+
+function StatsHeader() {
+
+  /**
+   * DataLayer
+   */
+  const [{ currentStatsRange, currentStatsTitle }, dispatch] = useDataLayerValue();
+
+  useEffect(() => {
+  
+  }, []);
+
+  return (
+    &lt;div className='statsHeader'>
+
+      {/* TITLE */}
+      &lt;div className='statsTitle'>
+        &lt;h2 
+          className={currentStatsTitle==='tracks' ? 'tracks selectedStat' : 'tracks'}
+          onClick={() => changeStatsTitle(dispatch, 'tracks')}
+        >Top Songs&lt;/h2>
+        &lt;h2 
+          className={currentStatsTitle==='artists' ? 'artists selectedStat' : 'artists'} 
+          onClick={() => changeStatsTitle(dispatch, 'artists')}
+        >Top Artists&lt;/h2>
+      &lt;/div>
+
+      {/* RANGE */}
+      &lt;div className='statsRange'>
+        &lt;h3 
+          className={currentStatsRange==='short' ? 'short selectedStat' : 'short'}
+          onClick={() => changeStatsRange(dispatch, 'short')}
+        >Last 4 Weeks&lt;/h3>
+        &lt;h3 
+          className={currentStatsRange==='medium' ? 'medium selectedStat' : 'medium'} 
+          onClick={() => changeStatsRange(dispatch, 'medium')}
+        >Last 6 Months&lt;/h3>
+        &lt;h3 
+          className={currentStatsRange==='long' ? 'long selectedStat' : 'long'} 
+          onClick={() => changeStatsRange(dispatch, 'long')}
+        >All Time&lt;/h3>
+      &lt;/div>
+
+    &lt;/div>
+  );
+}
+
 
 /**
-* The URL the Spotify authorization will redirect to after it is complete.
-*/
-const redirectURI = "http://localhost:3000/";
+ * Change the current stats title to display, options are: Top Songs or Top Artists
+ * 
+ * @param {*} dispatch 
+ * @param {String} newTitle 
+ */
+ function changeStatsTitle(dispatch, newTitle){
+  dispatch({
+    type: "SET_CURRENT_STATS_TITLE",
+    currentStatsTitle: newTitle,
+  });
+}
 
 /**
-* A unique Client ID which is linked to the project on Spotfiy for Developers.
-*/
-const clientID = "5fe24f726a784ced9a2133098d1b6db1";
+ * Change the current stats range to display, options are: All time, Last 6 Months, and Last 4 Weeks
+ * 
+ * @param {*} dispatch 
+ * @param {String} newRange 
+ */
+function changeStatsRange(dispatch, newRange){
+  dispatch({
+    type: "SET_CURRENT_STATS_RANGE",
+    currentStatsRange: newRange,
+  });
+}
 
-/**
-* The scopes for which the access code will authorize access for. 
-*/
-const scopes = [
-  "user-read-currently-playing",
-  "user-read-recently-played",
-  "user-read-playback-state",
-  "user-top-read",
-  "user-modify-playback-state",
-];
-
-/**
-* The URL to login with Spotify.
-*/
-export const loginURL = `${authorizationEndpoint}` +
-  `?client_id=${clientID}` +
-  `&amp;redirect_uri=${redirectURI}` +
-  `&amp;scope=${scopes.join("%20")}` +
-  `&amp;response_type=token` +
-  `&amp;show_dialog=true`; 
-
-/**
-* Gets the access token from the URL after the Spotfiy authorization is complete.
-* 
-* @returns {string} Spotify access token
-*/
-export const getAccessTokenFromURL = () => {
-  return window.location.hash
-    .substring(1)
-    .split("&amp;")
-    .reduce((initial, item) => {
-      let parts = item.split("=");
-      initial[parts[0]] = decodeURIComponent(parts[1]);
-      return initial;
-    }, {});
-};</code></pre>
+export default StatsHeader;</code></pre>
         </article>
     </section>
 

@@ -31,42 +31,43 @@
  */
 
 
+import { fetchTopTracksShort, fetchTopTracksMedium, fetchTopTracksLong, 
+  fetchTopArtistsShort, fetchTopArtistsMedium, fetchTopArtistsLong,
+  fetchFeaturedPlaylists, fetchNewReleases, fetchRecentlyPlayedTracks } from './fetchRequests';
 
-/**
- * Fetch information about user's top artists of all time
- * 
- * @param {*} spotify 
- * @param {*} dispatch 
- * @param {String} setDisplayStats - tell Body component to display Stats component
- */
-export const fetchTopArtistsLong = (spotify, dispatch, setDisplayStats) => {
+
+
+  /**
+   * Update the current Body component to display Stats component then fetch the user's statistics
+   * 
+   * @param {*} spotify 
+   * @param {*} dispatch 
+   * @param {String} setDisplayStats - 'stats'
+   * @param {*} topTracksShort - current topSongsShort
+   * @param {*} topTracksMedium - current topSongsMedium
+   * @param {*} topTracksLong - current topSongsLong
+   * @param {*} topArtistsShort - current topArtistsShort
+   * @param {*} topArtistsMedium - current topArtistsMedium
+   * @param {*} topArtistsLong - current topArtistsLong
+   */
+export const fetchUserStats = (spotify, dispatch, setDisplayStats, 
+  topSongsShort, topSongsMedium, topSongsLong,
+  topArtistsShort, topArtistsMedium, topArtistsLong
+) => {
 
   // Change current display to Your Stats
-  dispatch({
-    type: "SET_CURRENT_BODY_DISPLAY",
-    currentBodyDisplay: setDisplayStats,
-  });
+  changeCurrentBodyDisplay(dispatch, setDisplayStats);
 
-  // Reset displayedPlaylist
-  dispatch({
-    type: "SET_DISPLAYED_PLAYLIST",
-    displayedPlaylist: null,
-  });
+  // Fetch each Top Songs Range if it does not already exist
+  if (topSongsShort==null) {fetchTopTracksShort(spotify, dispatch);}
+  if (topSongsMedium==null) {fetchTopTracksMedium(spotify, dispatch);}
+  if (topSongsLong==null) {fetchTopTracksLong(spotify, dispatch);}
 
+  // Fetch each Top Artists Range if it does not already exist
+  if (topArtistsShort==null) {fetchTopArtistsShort(spotify, dispatch);}
+  if (topArtistsMedium==null) {fetchTopArtistsMedium(spotify, dispatch);}
+  if (topArtistsLong==null) {fetchTopArtistsLong(spotify, dispatch);}
 
-  // Options for the api request
-  const optionsLong = {
-    'limit': 50,
-    'offset': 0,
-    'time_range': 'long_term',
-  }
-
-  // Fetch the information on top artists of all time then push it to the data layer
-  spotify.getMyTopArtists(optionsLong).then(topArtistsLong => 
-    dispatch({
-      type: "SET_TOP_ARTISTS_LONG",
-      topArtistsLong: topArtistsLong,
-    }))
 }
 
 
@@ -78,7 +79,7 @@ export const fetchTopArtistsLong = (spotify, dispatch, setDisplayStats) => {
  * @param {*} dispatch 
  * @param {String} newCurrentBodyDisplay - New page to display
  */
-export const handleIconClick = (dispatch, newCurrentBodyDisplay) => {
+export const changeCurrentBodyDisplay = (dispatch, newCurrentBodyDisplay) => {
 
   // Change the current display to newCurrentBodyDisplay
   dispatch({
@@ -119,6 +120,27 @@ export const displayPlaylist = (spotify, dispatch, playlistID, newCurrentBodyDis
     currentBodyDisplay: newCurrentBodyDisplay,
   });
 
+}
+
+/**
+ * Update the current Body component to display Home component then fetch the home content
+ * 
+ * @param {*} spotify 
+ * @param {*} dispatch 
+ * @param {String} setDisplayHome - 'home'
+ * @param {*} featuredPlaylists 
+ * @param {*} newReleases 
+ * @param {*} recentlyPlayedTracks 
+ */
+export const fetchHomeContent = (spotify, dispatch, setDisplayHome, featuredPlaylists, newReleases, recentlyPlayedTracks) => {
+  
+  // Change current display to Home
+  changeCurrentBodyDisplay(dispatch, setDisplayHome);
+
+  // Fetch home content if it does not already exist
+  if (featuredPlaylists==null) {fetchFeaturedPlaylists(spotify, dispatch);}
+  if (newReleases==null) {fetchNewReleases(spotify, dispatch);}
+  if (recentlyPlayedTracks==null) {fetchRecentlyPlayedTracks(spotify, dispatch);}
 }</code></pre>
         </article>
     </section>
@@ -129,13 +151,13 @@ export const displayPlaylist = (spotify, dispatch, playlistID, newCurrentBodyDis
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#authorizationEndpoint">authorizationEndpoint</a></li><li><a href="global.html#clientID">clientID</a></li><li><a href="global.html#displayPlaylist">displayPlaylist</a></li><li><a href="global.html#fetchTopArtistsLong">fetchTopArtistsLong</a></li><li><a href="global.html#getAccessTokenFromURL">getAccessTokenFromURL</a></li><li><a href="global.html#handleIconClick">handleIconClick</a></li><li><a href="global.html#initialState">initialState</a></li><li><a href="global.html#loginURL">loginURL</a></li><li><a href="global.html#msToMinutes">msToMinutes</a></li><li><a href="global.html#redirectURI">redirectURI</a></li><li><a href="global.html#scopes">scopes</a></li><li><a href="global.html#spotify">spotify</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#authorizationEndpoint">authorizationEndpoint</a></li><li><a href="global.html#changeCurrentBodyDisplay">changeCurrentBodyDisplay</a></li><li><a href="global.html#changeStatsRange">changeStatsRange</a></li><li><a href="global.html#changeStatsTitle">changeStatsTitle</a></li><li><a href="global.html#clientID">clientID</a></li><li><a href="global.html#displayPlaylist">displayPlaylist</a></li><li><a href="global.html#fetchFeaturedPlaylists">fetchFeaturedPlaylists</a></li><li><a href="global.html#fetchHomeContent">fetchHomeContent</a></li><li><a href="global.html#fetchNewReleases">fetchNewReleases</a></li><li><a href="global.html#fetchRecentlyPlayedTracks">fetchRecentlyPlayedTracks</a></li><li><a href="global.html#fetchTopArtistsLong">fetchTopArtistsLong</a></li><li><a href="global.html#fetchTopArtistsMedium">fetchTopArtistsMedium</a></li><li><a href="global.html#fetchTopArtistsShort">fetchTopArtistsShort</a></li><li><a href="global.html#fetchTopTracksLong">fetchTopTracksLong</a></li><li><a href="global.html#fetchTopTracksMedium">fetchTopTracksMedium</a></li><li><a href="global.html#fetchTopTracksShort">fetchTopTracksShort</a></li><li><a href="global.html#fetchUserStats">fetchUserStats</a></li><li><a href="global.html#getAccessTokenFromURL">getAccessTokenFromURL</a></li><li><a href="global.html#getGreeting">getGreeting</a></li><li><a href="global.html#initialState">initialState</a></li><li><a href="global.html#INITIALSTATSTITLE">INITIALSTATSTITLE</a></li><li><a href="global.html#loginURL">loginURL</a></li><li><a href="global.html#msToMinutes">msToMinutes</a></li><li><a href="global.html#optionsLong">optionsLong</a></li><li><a href="global.html#optionsMedium">optionsMedium</a></li><li><a href="global.html#optionsShort">optionsShort</a></li><li><a href="global.html#redirectURI">redirectURI</a></li><li><a href="global.html#scopes">scopes</a></li><li><a href="global.html#spotify">spotify</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Sun Nov 06 2022 15:40:46 GMT-0600 (Central Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Sat Dec 03 2022 22:29:03 GMT-0600 (Central Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

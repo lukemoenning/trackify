@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: spotify.js</title>
+    <title>JSDoc: Source: components/Album.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: spotify.js</h1>
+    <h1 class="page-title">Source: components/Album.js</h1>
 
     
 
@@ -27,56 +27,36 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * The base URL for the Spotify authrozation URL.
+ * Album componet for displaying square versions of albums and playlists
  */
-const authorizationEndpoint = "https://accounts.spotify.com/authorize";
 
-/**
-* The URL the Spotify authorization will redirect to after it is complete.
-*/
-const redirectURI = "http://localhost:3000/";
+import React from 'react';
+import '../components/styles/Album.css';
+import { Avatar } from '@mui/material';
 
-/**
-* A unique Client ID which is linked to the project on Spotfiy for Developers.
-*/
-const clientID = "5fe24f726a784ced9a2133098d1b6db1";
 
-/**
-* The scopes for which the access code will authorize access for. 
-*/
-const scopes = [
-  "user-read-currently-playing",
-  "user-read-recently-played",
-  "user-read-playback-state",
-  "user-top-read",
-  "user-modify-playback-state",
-];
+function Album({ album }) {
 
-/**
-* The URL to login with Spotify.
-*/
-export const loginURL = `${authorizationEndpoint}` +
-  `?client_id=${clientID}` +
-  `&amp;redirect_uri=${redirectURI}` +
-  `&amp;scope=${scopes.join("%20")}` +
-  `&amp;response_type=token` +
-  `&amp;show_dialog=true`; 
+  /**
+   * External link for the album, will distinguish if the object is an album or playlist.
+   * If a description exists, then it is a playlist
+   */
+  let link
+  album.description ? link = "https://open.spotify.com/playlist/"+album?.id : link = "https://open.spotify.com/album/"+album?.id;
 
-/**
-* Gets the access token from the URL after the Spotfiy authorization is complete.
-* 
-* @returns {string} Spotify access token
-*/
-export const getAccessTokenFromURL = () => {
-  return window.location.hash
-    .substring(1)
-    .split("&amp;")
-    .reduce((initial, item) => {
-      let parts = item.split("=");
-      initial[parts[0]] = decodeURIComponent(parts[1]);
-      return initial;
-    }, {});
-};</code></pre>
+  return (
+    &lt;a className='album' href={link} target='_blank'>
+      &lt;Avatar className= 'albumPhoto' src={album?.images[0]?.url} alt={album?.name} sx={{height: 150, width: 150, borderRadius: 2}} variant='square'/>
+      &lt;h2>{album?.name}&lt;/h2>
+
+      {/* IF A PLAYLIST DISPLAY DESCRIPTION OTHERWISE DISPLAY ARTISTS */}
+      {album.description ? &lt;p>{album?.description}&lt;/p> : &lt;p>{album?.artists?.map(artist => artist.name + ' ')}&lt;/p>}
+      
+    &lt;/a>
+  )
+};
+
+export default Album;</code></pre>
         </article>
     </section>
 

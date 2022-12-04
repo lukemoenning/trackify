@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: spotify.js</title>
+    <title>JSDoc: Source: assets/constants/constants.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: spotify.js</h1>
+    <h1 class="page-title">Source: assets/constants/constants.js</h1>
 
     
 
@@ -26,57 +26,11 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * The base URL for the Spotify authrozation URL.
- */
-const authorizationEndpoint = "https://accounts.spotify.com/authorize";
+            <pre class="prettyprint source linenums"><code>/** Constants for JS files */
 
-/**
-* The URL the Spotify authorization will redirect to after it is complete.
-*/
-const redirectURI = "http://localhost:3000/";
-
-/**
-* A unique Client ID which is linked to the project on Spotfiy for Developers.
-*/
-const clientID = "5fe24f726a784ced9a2133098d1b6db1";
-
-/**
-* The scopes for which the access code will authorize access for. 
-*/
-const scopes = [
-  "user-read-currently-playing",
-  "user-read-recently-played",
-  "user-read-playback-state",
-  "user-top-read",
-  "user-modify-playback-state",
-];
-
-/**
-* The URL to login with Spotify.
-*/
-export const loginURL = `${authorizationEndpoint}` +
-  `?client_id=${clientID}` +
-  `&amp;redirect_uri=${redirectURI}` +
-  `&amp;scope=${scopes.join("%20")}` +
-  `&amp;response_type=token` +
-  `&amp;show_dialog=true`; 
-
-/**
-* Gets the access token from the URL after the Spotfiy authorization is complete.
-* 
-* @returns {string} Spotify access token
-*/
-export const getAccessTokenFromURL = () => {
-  return window.location.hash
-    .substring(1)
-    .split("&amp;")
-    .reduce((initial, item) => {
-      let parts = item.split("=");
-      initial[parts[0]] = decodeURIComponent(parts[1]);
-      return initial;
-    }, {});
-};</code></pre>
+export const INITIALSTATSTITLE = 'tracks';
+export const INITIALSTATSRANGE = 'short';
+export const INITIALBODYDISPLAY = 'home';</code></pre>
         </article>
     </section>
 

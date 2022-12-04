@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: spotify.js</title>
+    <title>JSDoc: Source: components/Home.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: spotify.js</h1>
+    <h1 class="page-title">Source: components/Home.js</h1>
 
     
 
@@ -27,56 +27,108 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * The base URL for the Spotify authrozation URL.
+ * The home component after the user chooses to display it
  */
-const authorizationEndpoint = "https://accounts.spotify.com/authorize";
+
+import React from 'react';
+import './styles/Home.css';
+import { useDataLayerValue } from '../DataLayer';
+import Album from './Album';
+import Song from './Song';
+
+
+function Home() {
+
+  /**
+   * DataLayer
+   */
+   const [{ spotify, user, featuredPlaylists, newReleases, recentlyPlayedTracks }, dispatch] = useDataLayerValue();
+
+  /**
+   * Set to keep track of which recently played tracks have been displayed to prevent duplicates
+   */
+  let recentlyPlayedTracksDisplayed = new Set();
+
+  return (
+    &lt;div className='home'>
+    
+      {/* GREETING */}
+      &lt;div className='greetingWrap'>
+        &lt;h1>{getGreeting()} {user?.display_name}&lt;/h1>
+      &lt;/div>
+
+      {/* FEATURED PLAYLISTS */}
+      &lt;div className='featuredPlaylistsWrap'>
+        &lt;h2>{featuredPlaylists?.message}&lt;/h2>
+
+        &lt;div className='featuredPlaylists'>
+          {featuredPlaylists?.playlists.items?.map(album => (
+            &lt;Album album={album} key={album.id} />
+          ))}
+        &lt;/div>
+
+      &lt;/div>
+
+      {/* NEW RELEASES */}
+      &lt;div className='newReleasesWrap'>
+        &lt;h2>New releases&lt;/h2>
+            
+        &lt;div className='newReleases'>
+          {newReleases?.albums?.items?.map(album => (
+            &lt;Album album={album} key={album.id} />
+          ))}
+        &lt;/div>
+
+      &lt;/div>
+
+      {/* RECENTLY PLAYED TRACKS */}
+      &lt;div className='recentlyPlayedTracksWrap'>
+        &lt;h2>Recently played tracks&lt;/h2>
+
+        &lt;div className='recentlyPlayedTracks'>
+
+          {/* Only add the track if it has not already been display */}
+          {recentlyPlayedTracks?.items?.map(item => {
+            if (!recentlyPlayedTracksDisplayed.has(item.track.id)) {
+              recentlyPlayedTracksDisplayed.add(item.track.id);
+              return (&lt;Song key={item.track.id} track={item.track}/>);
+            }
+          })}
+        &lt;/div>
+
+      &lt;/div>
+
+    &lt;/div>
+  );
+}
 
 /**
-* The URL the Spotify authorization will redirect to after it is complete.
-*/
-const redirectURI = "http://localhost:3000/";
+ * Get the greeting for the home page, will differ depening on the time of day.
+ * 
+ * @returns String with the greeting that corresponds to the time of day
+ */
+function getGreeting() {
+  
+  const todaysDate = new Date();
+  const currentHour = todaysDate.getHours();
 
-/**
-* A unique Client ID which is linked to the project on Spotfiy for Developers.
-*/
-const clientID = "5fe24f726a784ced9a2133098d1b6db1";
+  switch (true) {
 
-/**
-* The scopes for which the access code will authorize access for. 
-*/
-const scopes = [
-  "user-read-currently-playing",
-  "user-read-recently-played",
-  "user-read-playback-state",
-  "user-top-read",
-  "user-modify-playback-state",
-];
+    case currentHour&lt;12:
+      return "Good morning";
 
-/**
-* The URL to login with Spotify.
-*/
-export const loginURL = `${authorizationEndpoint}` +
-  `?client_id=${clientID}` +
-  `&amp;redirect_uri=${redirectURI}` +
-  `&amp;scope=${scopes.join("%20")}` +
-  `&amp;response_type=token` +
-  `&amp;show_dialog=true`; 
+    case currentHour&lt;18:
+      return "Good afternoon";
 
-/**
-* Gets the access token from the URL after the Spotfiy authorization is complete.
-* 
-* @returns {string} Spotify access token
-*/
-export const getAccessTokenFromURL = () => {
-  return window.location.hash
-    .substring(1)
-    .split("&amp;")
-    .reduce((initial, item) => {
-      let parts = item.split("=");
-      initial[parts[0]] = decodeURIComponent(parts[1]);
-      return initial;
-    }, {});
-};</code></pre>
+    case currentHour&lt;24:
+      return "Good evening";
+
+    default:
+      return "Hello";
+  }
+}
+
+export default Home;</code></pre>
         </article>
     </section>
 
