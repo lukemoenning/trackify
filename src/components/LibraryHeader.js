@@ -1,5 +1,10 @@
+/** 
+ * LibraryHeader component to navigate the content in the user's library 
+ * */
+
 import React from 'react';
 import '../components/styles/LibraryHeader.css';
+
 
 function LibraryHeader() {
   return (

@@ -9,6 +9,7 @@
   align-items: center;
   height: 60px;
   width: 100%;
+  min-width: 0px;
   color: var(--white);
 }
 
@@ -26,9 +27,10 @@
 .leftInfo, .songAlbum, .duration {
   display: flex;
   align-items: center;
-  width: 30%;
-  height: auto;
+  width: calc(30%);
   overflow: hidden;
+  min-width: 0px;
+  height: auto;
   margin: 0 10px 0 10px;
 }
 
@@ -39,7 +41,7 @@
 /* RANKING, ALBUM COVER, SONG NAME, AND ARTISTS */
 
 .leftInfo {
-  width: 40%;
+  width: calc(40%);
 }
 
 .leftInfo img {
@@ -47,6 +49,11 @@
 }
 
 .songRank {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  min-width: 20px;
+  margin-left: 5px;
   color: var(--dark-green);
 }
 
@@ -61,7 +68,10 @@
 }
 
 .nameAndArtist {
+  display: flex;
+  flex-direction: column;
   padding-left: 10px;
+  width: calc(100%);
 }
 
 /* ***** ***** ***** ***** ***** */
@@ -71,7 +81,6 @@
 /* ARTIST INFORMATION */
 
 .artist {
-  padding: 2px;
   font-size: small;
 }
 
@@ -91,13 +100,16 @@
 
 /* HANDLE OVERFLOW FOR TEXT FIELDS */
 
-.name, .songAlbum{
+.name, .artist, .songAlbum{
+  display: flex;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  padding: 2px;
+  margin: 2px;
   height: 20px;
 }
 
 /* ***** ***** ***** ***** ***** */
+
+
 

@@ -5,10 +5,12 @@
 /* PARENT DIV */
 
 .album {
-  display: flex;
+  display: inline-block;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-evenly;
-  height:235px;
+  height:250px;
+  width: 200px;
   min-width: 200px;
   background-color: var(--dark-grey);
   color: var(--white);
@@ -27,7 +29,7 @@
 /* ALBUM PHOTO */
 
 .albumPhoto {
-  margin-top: 10px;
+  margin: 15px 25px 15px 25px;
   align-self: center;
 }
 
@@ -38,12 +40,15 @@
 /* ALBUM NAME */
 
 .album h2 {
-  display: flex;
+  display: inline-block;
   align-items: center;
-  padding-left: 10px;
+  margin: 5px 10px 5px 10px;
   font-size: medium;
-  height: 40px;
-  overflow-y: hidden;
+  height: 20px;
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ***** ***** ***** ***** ***** */
@@ -53,11 +58,15 @@
 /* ALBUM DESCRIPTION */
 
 .album p {
-  display: flex;  
-  padding-left: 10px;
+  display: inline-block;
+  align-items: center;
+  margin: 0 10px 5px 10px;
   font-size: small;
-  height: 30px;
-  overflow-y: hidden;
+  height: 20px;
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ***** ***** ***** ***** ***** */

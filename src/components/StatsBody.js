@@ -2,12 +2,12 @@
  * Body component for Stats. Display the statistic the user chooses in the StatsHeader
  */
 
-
 import React from 'react';
 import './styles/StatsBody.css';
 import { useDataLayerValue } from '../DataLayer';
 import ArtistProfile from './ArtistProfile';
 import Song from './Song';
+
 
 function StatsBody( props ) {
 

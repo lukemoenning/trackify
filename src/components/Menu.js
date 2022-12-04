@@ -9,8 +9,8 @@ import './styles/Menu.css';
 import logo from '../assets/images/spotify_logo_white.png';
 import { useDataLayerValue } from '../DataLayer';
 import MenuItem from './MenuItem';
-import { Home, LibraryMusic, BarChart } from '@mui/icons-material';
-import { changeCurrentBodyDisplay, displayPlaylist, fetchHomeContent, fetchUserStats } from '../menuScripts';
+import { Home, BarChart } from '@mui/icons-material';
+import { displayPlaylist, fetchHomeContent, fetchUserStats } from '../menuScripts';
 
 
 function Menu() {
@@ -21,9 +21,7 @@ function Menu() {
   const [{ spotify, playlists, topTracksShort, topTracksMedium, topTracksLong,
     topArtistsShort, topArtistsMedium, topArtistsLong,
     featuredPlaylists, newReleases, recentlyPlayedTracks,
-    currentBodyDisplay, displayedPlaylist }, dispatch] = useDataLayerValue();
-
-    console.log(topArtistsLong)
+    currentBodyDisplay }, dispatch] = useDataLayerValue();
 
     useEffect(() => {
       

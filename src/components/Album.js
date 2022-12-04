@@ -23,6 +23,7 @@ function Album({ album }) {
 
       {/* IF A PLAYLIST DISPLAY DESCRIPTION OTHERWISE DISPLAY ARTISTS */}
       {album.description ? <p>{album?.description}</p> : <p>{album?.artists?.map(artist => artist.name + ' ')}</p>}
+      
     </a>
   )
 };

@@ -1,4 +1,4 @@
-// Spotfiy color palette for mui themes
+/** Spotfiy color palette for mui themes */ 
 
 import { createTheme } from '@mui/material';
 

@@ -4,12 +4,10 @@
  * Contains the navigation
  */
 
-
 import React, { useEffect } from 'react';
 import './styles/StatsHeader.css';
 import '../assets/constants/Colors.css';
 import { useDataLayerValue } from '../DataLayer';
-
 
 
 function StatsHeader() {
@@ -30,11 +28,11 @@ function StatsHeader() {
       <div className='statsTitle'>
         <h2 
           className={currentStatsTitle==='tracks' ? 'tracks selectedStat' : 'tracks'}
-          onClick={() => changeStatsTitle(dispatch, currentStatsTitle, 'tracks')}
+          onClick={() => changeStatsTitle(dispatch, 'tracks')}
         >Top Songs</h2>
         <h2 
           className={currentStatsTitle==='artists' ? 'artists selectedStat' : 'artists'} 
-          onClick={() => changeStatsTitle(dispatch, currentStatsTitle, 'artists')}
+          onClick={() => changeStatsTitle(dispatch, 'artists')}
         >Top Artists</h2>
       </div>
 
@@ -42,15 +40,15 @@ function StatsHeader() {
       <div className='statsRange'>
         <h3 
           className={currentStatsRange==='short' ? 'short selectedStat' : 'short'}
-          onClick={() => changeStatsRange(dispatch, currentStatsRange, 'short')}
+          onClick={() => changeStatsRange(dispatch, 'short')}
         >Last 4 Weeks</h3>
         <h3 
           className={currentStatsRange==='medium' ? 'medium selectedStat' : 'medium'} 
-          onClick={() => changeStatsRange(dispatch, currentStatsRange, 'medium')}
+          onClick={() => changeStatsRange(dispatch, 'medium')}
         >Last 6 Months</h3>
         <h3 
           className={currentStatsRange==='long' ? 'long selectedStat' : 'long'} 
-          onClick={() => changeStatsRange(dispatch, currentStatsRange, 'long')}
+          onClick={() => changeStatsRange(dispatch, 'long')}
         >All Time</h3>
       </div>
 
@@ -65,9 +63,7 @@ function StatsHeader() {
  * @param {*} dispatch 
  * @param {String} newTitle 
  */
- function changeStatsTitle(dispatch, currentStatsTitle, newTitle){
-  // updateHighlight(currentStatsTitle, newTitle);
-
+ function changeStatsTitle(dispatch, newTitle){
   dispatch({
     type: "SET_CURRENT_STATS_TITLE",
     currentStatsTitle: newTitle,
@@ -80,28 +76,11 @@ function StatsHeader() {
  * @param {*} dispatch 
  * @param {String} newRange 
  */
-function changeStatsRange(dispatch, currentStatsRange, newRange){
-  // updateHighlight(currentStatsRange, newRange);
-
+function changeStatsRange(dispatch, newRange){
   dispatch({
     type: "SET_CURRENT_STATS_RANGE",
     currentStatsRange: newRange,
   });
 }
-
-/**
- * Remove the previous highlighted navigation and highlight the new one
- * 
- * @param {String} currentHighlight 
- * @param {String} newHighlight 
- */
-function updateHighlight(currentHighlight, newHighlight) {
-  let prev = document.getElementsByClassName(currentHighlight);
-  prev.classList.remove('highlight');
-
-  let cur = document.getElementsByClassName(newHighlight);
-  cur.classList.add('highlight');
-}
-
 
 export default StatsHeader;
