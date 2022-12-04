@@ -6,7 +6,7 @@ const authorizationEndpoint = "https://accounts.spotify.com/authorize";
 /**
 * The URL the Spotify authorization will redirect to after it is complete.
 */
-const redirectURI = "http://localhost:3000/";
+const redirectURI = "https://lukemoenning.github.io/trackify/";
 
 /**
 * A unique Client ID which is linked to the project on Spotfiy for Developers.
