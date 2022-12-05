@@ -35,7 +35,7 @@ function Home() {
 
         <div className='featuredPlaylists'>
           {featuredPlaylists?.playlists.items?.map(album => (
-            <Album album={album} key={album.id} />
+            <Album album={album} key={album?.id} />
           ))}
         </div>
 
@@ -47,7 +47,7 @@ function Home() {
             
         <div className='newReleases'>
           {newReleases?.albums?.items?.map(album => (
-            <Album album={album} key={album.id} />
+            <Album album={album} key={album?.id} />
           ))}
         </div>
 
@@ -61,9 +61,9 @@ function Home() {
 
           {/* Only add the track if it has not already been display */}
           {recentlyPlayedTracks?.items?.map(item => {
-            if (!recentlyPlayedTracksDisplayed.has(item.track.id)) {
-              recentlyPlayedTracksDisplayed.add(item.track.id);
-              return (<Song key={item.track.id} track={item.track}/>);
+            if (!recentlyPlayedTracksDisplayed.has(item?.track?.id)) {
+              recentlyPlayedTracksDisplayed.add(item?.track?.id);
+              return (<Song key={item?.track?.id} track={item?.track}/>);
             }
           })}
         </div>
